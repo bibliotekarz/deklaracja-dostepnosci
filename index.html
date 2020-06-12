@@ -103,6 +103,7 @@
 </head>
 
 <body>
+    <
  
 <form action="/action_page.php" method="post">
     <fieldset>
@@ -312,6 +313,22 @@
             <p><a href="https://www.multibiblioteka.waw.pl" id="a11y-url" title="Link do strony domowej Biblioteki">Powrót do strony głównej Biblioteki.</a></p>
         </div>
     </div>
+
+<script>function viewForm() {
+    let spis;
+    const wszystko = new FormData(document.forms[0]);
+    for (let entry of wszystko){
+        spis = spis + entry;
+    }
+    return spis;
+}
+// viewForm();
+const wywy = viewForm();
+console.log(wywy);
+
+
+
+</script>
 </body>
 
 </html>
