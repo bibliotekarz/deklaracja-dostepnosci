@@ -1,0 +1,52 @@
+<html>
+<head>
+<script>
+    function qwert() {
+        var bazowy = 'Nazywam się %imie%, mam %wiek% lata, moje ulubione potrawy to: %potrawy%.';
+        
+        var inputs = new FormData(document.getElementById('aaa'));
+		var data = inputs.keys();
+		
+		for (var key of data) {
+            var value = inputs.get(key);
+            var special = ['potrawy'];
+            
+            if (key.includes('_')) {
+                var localKey = key.split('_')[0];
+                if (typeof this[localKey] !== 'undefined') {
+                    this[localKey] = this[localKey] + ' ' + value;
+                } else {
+                    alert('UWAGA: ' + localKey + ' : ' + value);
+                    this[localKey] = value;
+                }
+            } else {
+                bazowy = bazowy.replace('%' + key + '%', value);
+            }
+        }
+        
+        var counter;
+        for (counter = 0 ; counter < special.length ; counter++) {
+            var key = special[counter];
+            //alert(key + ' : ' + this[key]);
+            bazowy = bazowy.replace('%' + key + '%', this[key]);
+        }
+        
+        alert(bazowy);
+    }
+</script>
+</head>
+<body>
+
+<form id = "aaa">
+<input type = "text" name = "imie"><br>
+<input type = "text" name = "wiek"><br>
+<input type = "text" name = "potrawy_1"><br>
+<input type = "text" name = "potrawy_2"><br>
+<input type = "text" name = "potrawy_3"><br>
+</form>
+<br><br>
+
+<p onclick = "qwert()">AAAAAAAAAAAAAA</p>
+
+</body>
+</html>
