@@ -76,7 +76,7 @@
             margin: 0 auto;
             background-color: #fff;
             -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
-            -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
+        /*    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08); */
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
             position: relative;
             z-index: 1;
@@ -103,84 +103,76 @@
 </head>
 
 <body>
-    <
- 
+    <br><br>
 <form action="/action_page.php" method="post">
     <fieldset>
-      <legend>Wypełnij poniższy formularz:</legend>
-      <label for="logo">ścieżka do grafiki logo:</label><br>
-      <input type="text" id="logo" name="logo" value="https://www.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br>
-      <label for="url">Adres Twojej strony wwww:</label><br>
-      <input type="text" id="url" name="url" value="https://www.multibiblioteka.waw.pl"><br>
-      <label for="podmiot">Nazwa firmy:</label><br>
-      <input type="text" id="podmiot" name="podmiot" value="Biblioteka Publiczna w&nbsp;Dzielnicy Targówek m.st.&nbsp;Warszawy"><br>
-      <label for="data-publikacja">Data publikacji strony internetowej:</label><br>
-      <input type="text" id="data-publikacja" name="data-publikacja" value="2002-11-14"><br>
-      <label for="data-aktualizacja">Data ostatniej dużej aktualizacji:</label><br>
-      <input type="text" id="data-aktualizacja" name="data-aktualizacja" value="2018-09-01"><br>
-      <label for="status">Opisz status zgodności strony z ustawą:</label><br>
-      <textarea name="status" style="width:800px; height:200px;"><p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p>
-      <ul>
-          <li>część plików w formacie pdf nie jest dostępnych cyfrowo,</li>
-          <li>część artykułów ma niepełną strukturę semantyczną,</ul>
-      </li>
-      <p>Wyłączenia: </p>
-      <ul>
-          <li>mapy są wyłączone z obowiązku zapewniania dostępności</ul>
-      </li></textarea><br>
-      <label for="data-sporzadzenie">Data sporządzenia deklaracji:</label><br>
-      <input type="text" id="data-sporzadzenie" name="data-sporzadzenie" value="2018-09-01"><br>
-      <label for="opis-strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
-      <textarea name="opis-strony" style="width:800px; height:200px;">
-      Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
-      <p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p>
-      <ol>
-          <li>wersję kontrastową,</li>
-          <li>możliwość zmiany rozmiaru tekstu,</li>
-          <li>widoczny fokus,</li>
-          <li>wyróżnienie odnośników,</li>
-          <li>skip linki dla urzadzeń czytających</li>
-          <li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
-      </ol>
-      <p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>
-    </textarea><br>
-
-
-    <label for="info-user">Opisz podstawę analizy strony i jej zawartość:</label><br>
-    <textarea name="info-user" style="width:800px; height:200px;">
-    <h2>Informacja dla użytkowników niepełnosprawnych</h2>
-    <ul>
-        <li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li>
-        <li>Na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
-        <li>Nawigacja jest też przyjazna dla osób niewidomych dzięki unikalnym tytułom podstron i porządkującej funkcji nagłówków.</li>
-        <li>W całym serwisie włączony jest tzw. fokus, czyli domyślne oznaczenie aktywnego linka czy pola formularza. Fokus przemieszcza się po wszystkich widocznych elementach aktywnych strony w logicznej kolejności – klawisz TAB. </li>
-        <li>Linki – także te prowadzące do serwisów zewnętrznych – otwierają się w tym samym oknie. </li>
-        <li>Zachowany jest czytelny kontrast tekstu do tła – dzięki temu materiały osadzone na stronie są czytelne także dla osób słabiej widzących.</li>
-        <li>Artykuły pisane są zrozumiałym tekstem oraz formatowane w sposób zgodny z zasadami dostępności.</li>
-        <li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li>
-    </ul>
-    <p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p>
-</textarea><br>
-
-      <label for="osoba">Osoba odpowiedzialna:</label><br>
-      <input type="text" id="osoba" name="osoba" value="Katarzyna Żółkowska"><br>
-      <label for="email">Email osoby odpowiedzialnej:</label><br>
-      <input type="text" id="email" name="email" value="kzolkowska@multibiblioteka.waw.pl"><br>
-      <label for="telefon">Telefon osoby odpowiedzialnej:</label><br>
-      <input type="text" id="telefon" name="telefon" value="22 814 24 07 w 102"><br><br>
-
-
-
-      <label for="architektura">Opisz podstawę analizy strony i jej zawartość:</label><br>
-      <textarea name="architektura" style="width:800px; height:200px;">
-      <p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
-        od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
-        ze zbiorów pomaga bibliotekarz.
-    </p>
-</textarea><br>
-
-
-      <input type="submit" value="Submit">
+        <legend>Wypełnij poniższy formularz:</legend>
+        <label for="logo">ścieżka do grafiki logo:</label><br>
+        <input type="text" id="logo" name="logo" value="https://www.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br>
+        <label for="url">Adres Twojej strony wwww:</label><br>
+        <input type="text" id="url" name="url" value="https://www.multibiblioteka.waw.pl"><br>
+        <label for="podmiot">Nazwa firmy:</label><br>
+        <input type="text" id="podmiot" name="podmiot" value="Biblioteka Publiczna w&nbsp;Dzielnicy Targówek m.st.&nbsp;Warszawy"><br>
+        <label for="data-publikacja">Data publikacji strony internetowej:</label><br>
+        <input type="text" id="data-publikacja" name="data-publikacja" value="2002-11-14"><br>
+        <label for="data-aktualizacja">Data ostatniej dużej aktualizacji:</label><br>
+        <input type="text" id="data-aktualizacja" name="data-aktualizacja" value="2018-09-01"><br>
+        <label for="status">Opisz status zgodności strony z ustawą:</label><br>
+            <textarea name="status" style="width:800px; height:200px;"><p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p>
+        <ul>
+            <li>część plików w formacie pdf nie jest dostępnych cyfrowo,</li>
+            <li>część artykułów ma niepełną strukturę semantyczną,</ul>
+        </li>
+        <p>Wyłączenia: </p>
+        <ul>
+            <li>mapy są wyłączone z obowiązku zapewniania dostępności</ul>
+        </li>
+            </textarea><br>
+        <label for="data-sporzadzenie">Data sporządzenia deklaracji:</label><br>
+        <input type="text" id="data-sporzadzenie" name="data-sporzadzenie" value="2018-09-01"><br>
+        <label for="opis-strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
+            <textarea name="opis-strony" style="width:800px; height:200px;">
+        Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
+        <p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p>
+        <ol>
+            <li>wersję kontrastową,</li>
+            <li>możliwość zmiany rozmiaru tekstu,</li>
+            <li>widoczny fokus,</li>
+            <li>wyróżnienie odnośników,</li>
+            <li>skip linki dla urzadzeń czytających</li>
+            <li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
+        </ol>
+        <p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>
+            </textarea><br>
+        <label for="info-user">Opisz podstawę analizy strony i jej zawartość:</label><br>
+            <textarea name="info-user" style="width:800px; height:200px;">
+        <h2>Informacja dla użytkowników niepełnosprawnych</h2>
+        <ul>
+            <li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li>
+            <li>Na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
+            <li>Nawigacja jest też przyjazna dla osób niewidomych dzięki unikalnym tytułom podstron i porządkującej funkcji nagłówków.</li>
+            <li>W całym serwisie włączony jest tzw. fokus, czyli domyślne oznaczenie aktywnego linka czy pola formularza. Fokus przemieszcza się po wszystkich widocznych elementach aktywnych strony w logicznej kolejności – klawisz TAB. </li>
+            <li>Linki – także te prowadzące do serwisów zewnętrznych – otwierają się w tym samym oknie. </li>
+            <li>Zachowany jest czytelny kontrast tekstu do tła – dzięki temu materiały osadzone na stronie są czytelne także dla osób słabiej widzących.</li>
+            <li>Artykuły pisane są zrozumiałym tekstem oraz formatowane w sposób zgodny z zasadami dostępności.</li>
+            <li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li>
+        </ul>
+        <p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p>
+            </textarea><br>
+        <label for="osoba">Osoba odpowiedzialna:</label><br>
+        <input type="text" id="osoba" name="osoba" value="Katarzyna Żółkowska"><br>
+        <label for="email">Email osoby odpowiedzialnej:</label><br>
+        <input type="text" id="email" name="email" value="kzolkowska@multibiblioteka.waw.pl"><br>
+        <label for="telefon">Telefon osoby odpowiedzialnej:</label><br>
+        <input type="text" id="telefon" name="telefon" value="22 814 24 07 w 102"><br><br>
+        <label for="architektura">Opisz podstawę analizy strony i jej zawartość:</label><br>
+            <textarea name="architektura" style="width:800px; height:200px;">
+        <p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
+            od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
+            ze zbiorów pomaga bibliotekarz.
+        </p>
+           </textarea><br>
+        <input type="submit" value="Submit">
     </fieldset>
   </form> 
 
@@ -314,21 +306,12 @@
         </div>
     </div>
 
-<script>function viewForm() {
-    let spis;
-    const wszystko = new FormData(document.forms[0]);
-    for (let entry of wszystko){
-        spis = spis + entry;
-    }
-    return spis;
-}
-// viewForm();
-const wywy = viewForm();
-console.log(wywy);
+
+    
+<h1>duda start</h1>
+<div id="duda"></div>
 
 
-
-</script>
 </body>
 
 </html>
