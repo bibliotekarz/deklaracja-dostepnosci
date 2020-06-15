@@ -100,23 +100,70 @@
             line-height: 1.1em;
         }
     </style>
+
+
+    <script>
+        var caly_tekst;
+        function utworz_text() {
+            //
+      
+            let bazowy = 'Adres logo %logo%,\n url %url%,\n nazwa podmiotu: %podmiot%,\n architektura %architektura%.';
+            
+            let zformularz = new FormData(document.getElementById('formularz'));
+            let klucze = zformularz.keys();
+            
+            for (let klucz of klucze) {
+                let nazwa_klucza = zformularz.get(klucz);
+                var special = ['architektura'];
+                
+                if (klucz.includes('_')) {
+                    let localKey = klucz.split('_')[0];
+                    if (typeof this[localKey] !== 'undefined') {
+                        this[localKey] = this[localKey] + ' ' + nazwa_klucza;
+                    } else {
+    //                    alert('UWAGA: ' + localKey + ' : ' + nazwa_klucza);
+                        this[localKey] = nazwa_klucza;
+                    }
+                } else {
+                    bazowy = bazowy.replace('%' + klucz + '%', nazwa_klucza);
+                }
+            }
+            
+            let counter;
+            
+            for (counter = 0 ; counter < special.length ; counter++) {
+                let klucz = special[counter];
+                bazowy = bazowy.replace('%' + klucz + '%', this[klucz]);
+            }
+            
+    //        alert("XXXXXXX " + bazowy);
+            caly_tekst = bazowy;
+     //       console.trace();
+            alert("___przed returnem : " + caly_tekst);
+    
+    
+            return caly_tekst;
+        
+        }
+    
+    </script>
 </head>
 
 <body>
     <br><br>
-<form action="/action_page.php" method="post">
+<form id=formularz>
     <fieldset>
         <legend>Wypełnij poniższy formularz:</legend>
         <label for="logo">ścieżka do grafiki logo:</label><br>
-        <input type="text" id="logo" name="logo" value="https://www.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br>
+        <input type="text" id="logo" name="logo" value="https://www.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br><br>
         <label for="url">Adres Twojej strony wwww:</label><br>
-        <input type="text" id="url" name="url" value="https://www.multibiblioteka.waw.pl"><br>
+        <input type="text" id="url" name="url" value="https://www.multibiblioteka.waw.pl"><br><br>
         <label for="podmiot">Nazwa firmy:</label><br>
-        <input type="text" id="podmiot" name="podmiot" value="Biblioteka Publiczna w&nbsp;Dzielnicy Targówek m.st.&nbsp;Warszawy"><br>
+        <input type="text" id="podmiot" name="podmiot" value="Biblioteka Publiczna w&nbsp;Dzielnicy Targówek m.st.&nbsp;Warszawy"><br><br>
         <label for="data-publikacja">Data publikacji strony internetowej:</label><br>
-        <input type="text" id="data-publikacja" name="data-publikacja" value="2002-11-14"><br>
+        <input type="text" id="data-publikacja" name="data-publikacja" value="2002-11-14"><br><br>
         <label for="data-aktualizacja">Data ostatniej dużej aktualizacji:</label><br>
-        <input type="text" id="data-aktualizacja" name="data-aktualizacja" value="2018-09-01"><br>
+        <input type="text" id="data-aktualizacja" name="data-aktualizacja" value="2018-09-01"><br><br>
         <label for="status">Opisz status zgodności strony z ustawą:</label><br>
             <textarea name="status" style="width:800px; height:200px;"><p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p>
         <ul>
@@ -127,12 +174,11 @@
         <ul>
             <li>mapy są wyłączone z obowiązku zapewniania dostępności</ul>
         </li>
-            </textarea><br>
+            </textarea><br><br>
         <label for="data-sporzadzenie">Data sporządzenia deklaracji:</label><br>
-        <input type="text" id="data-sporzadzenie" name="data-sporzadzenie" value="2018-09-01"><br>
+        <input type="text" id="data-sporzadzenie" name="data-sporzadzenie" value="2018-09-01"><br><br>
         <label for="opis-strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
-            <textarea name="opis-strony" style="width:800px; height:200px;">
-        Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
+        <textarea name="opis-strony" style="width:800px; height:200px;">Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
         <p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p>
         <ol>
             <li>wersję kontrastową,</li>
@@ -143,9 +189,9 @@
             <li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
         </ol>
         <p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>
-            </textarea><br>
+        </textarea><br><br>
         <label for="info-user">Opisz podstawę analizy strony i jej zawartość:</label><br>
-            <textarea name="info-user" style="width:800px; height:200px;">
+        <textarea name="info-user" style="width:800px; height:200px;">
         <h2>Informacja dla użytkowników niepełnosprawnych</h2>
         <ul>
             <li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li>
@@ -158,23 +204,21 @@
             <li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li>
         </ul>
         <p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p>
-            </textarea><br>
+        </textarea><br><br>
         <label for="osoba">Osoba odpowiedzialna:</label><br>
-        <input type="text" id="osoba" name="osoba" value="Katarzyna Żółkowska"><br>
+        <input type="text" id="osoba" name="osoba" value="Katarzyna Żółkowska"><br><br>
         <label for="email">Email osoby odpowiedzialnej:</label><br>
-        <input type="text" id="email" name="email" value="kzolkowska@multibiblioteka.waw.pl"><br>
+        <input type="text" id="email" name="email" value="kzolkowska@multibiblioteka.waw.pl"><br><br>
         <label for="telefon">Telefon osoby odpowiedzialnej:</label><br>
         <input type="text" id="telefon" name="telefon" value="22 814 24 07 w 102"><br><br>
         <label for="architektura">Opisz podstawę analizy strony i jej zawartość:</label><br>
-            <textarea name="architektura" style="width:800px; height:200px;">
-        <p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
-            od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
-            ze zbiorów pomaga bibliotekarz.
-        </p>
-           </textarea><br>
-        <input type="submit" value="Submit">
+        <textarea name="architektura_1" style="width:800px; height:200px;"><p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
+        </textarea><br><br>
+  <button type="submit" value="Submit" form="formularz" onclick = "utworz_text()">Przepisz</button>
     </fieldset>
   </form> 
+
+<br>
 
     <div class="site-branding" style="width: 980px;">
         <div id="logo">
@@ -185,7 +229,7 @@
     <div id="main-content-wrapper">
         <div id="content" class="site-content" style="background-color: white; padding: 30px;">
             <div id="primary" class="content-area index-page" style="padding: 0px;">
-                <main id="main" class="site-main" role="main">
+        <!--         <main id="main" class="site-main" role="main">
                     <div id="a11y-deklaracja">
                         <h1>Deklaracja dostępności</h1>
                         <h2>Wstęp Deklaracji</h2>
@@ -301,7 +345,7 @@
                         </div>
                     </div>
                 </main>
-            </div>
+            --> </div>
             <p><a href="https://www.multibiblioteka.waw.pl" id="a11y-url" title="Link do strony domowej Biblioteki">Powrót do strony głównej Biblioteki.</a></p>
         </div>
     </div>
@@ -310,8 +354,10 @@
     
 <h1>duda start</h1>
 <div id="duda"></div>
-
-
+<script>
+    console.log(caly_tekst);
+    document.getElementById('duda').innerHTML = "wypisanie się: " + caly_tekst;
+</script>
 </body>
 
 </html>
