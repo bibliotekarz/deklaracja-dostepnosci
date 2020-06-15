@@ -76,7 +76,7 @@
             margin: 0 auto;
             background-color: #fff;
             -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
-        /*    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08); */
+            -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
             position: relative;
             z-index: 1;
@@ -100,104 +100,22 @@
             line-height: 1.1em;
         }
     </style>
-
-
-    <script>
-        function utworz_text() {
-           
-        var caly_tekst;
-        var bazowy = 'Adres logo %logo%,\n url %url%,\n nazwa podmiotu: %podmiot%,\n architektura %architektura%.';
-            
-      
-            var zformularz = new FormData(document.getElementById('formularz'));
-            var klucze = zformularz.keys();
-            
-            for (var klucz of klucze) {
-                var nazwa_klucza = zformularz.get(klucz);
-                var special = ['architektura'];
-                
-                if (klucz.includes('_')) {
-                    var localKey = klucz.split('_')[0];
-                    if (typeof this[localKey] !== 'undefined') {
-                        this[localKey] = this[localKey] + ' ' + nazwa_klucza;
-                    } else {
-    //                    alert('UWAGA: ' + localKey + ' : ' + nazwa_klucza);
-                        this[localKey] = nazwa_klucza;
-                    }
-                } else {
-                    bazowy = bazowy.replace('%' + klucz + '%', nazwa_klucza);
-                }
-            }
-            
-            var counter;
-            
-            for (counter = 0 ; counter < special.length ; counter++) {
-                var klucz = special[counter];
-                bazowy = bazowy.replace('%' + klucz + '%', this[klucz]);
-            }
-            
-    //        alert("XXXXXXX " + bazowy);
-            caly_tekst = bazowy;
-            console.log("typ bazowy: " + typeof(bazowy));
-            console.log("typ caly_tekst: " + typeof(caly_tekst));
-            alert("___przed returnem : " + caly_tekst);
-    
-            console.log("przed return caly_tekst *** " + caly_tekst);
-            console.log("przed return bazowy *** " + bazowy);
-            return bazowy;
-        
-        }
-    
-    </script>
 </head>
 
 <body>
-    <br><br>
-<form id="formularz">
-    <fieldset>
-        <legend>Wypełnij poniższy formularz:</legend>
-        <label for="logo">ścieżka do grafiki logo:</label><br>
-        <input type="text" id="logo" name="logo"><br><br>
-        <label for="url">Adres Twojej strony wwww:</label><br>
-        <input type="text" id="url" name="url"><br><br>
-        <label for="podmiot">Nazwa firmy:</label><br>
-        <input type="text" id="podmiot" name="podmiot"><br><br>
-        <label for="data-publikacja">Data publikacji strony internetowej:</label><br>
-        <input type="text" id="data-publikacja" name="data-publikacja"><br><br>
-        <label for="data-aktualizacja">Data ostatniej dużej aktualizacji:</label><br>
-        <input type="text" id="data-aktualizacja" name="data-aktualizacja"><br><br>
-        <label for="status">Opisz status zgodności strony z ustawą:</label><br>
-        <textarea name="status" style="width:800px; height:200px;"></textarea><br><br>
-        <label for="data-sporzadzenie">Data sporządzenia deklaracji:</label><br>
-        <input type="text" id="data-sporzadzenie" name="data-sporzadzenie"><br><br>
-        <label for="opis-strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
-        <textarea name="opis-strony" style="width:800px; height:200px;"></textarea><br><br>
-        <label for="info-user">Informacja dla użytkowników niepełnosprawnych:</label><br>
-        <textarea name="info-user" style="width:800px; height:200px;"></textarea><br><br>
-        <label for="osoba">Osoba odpowiedzialna:</label><br>
-        <input type="text" id="osoba" name="osoba"><br><br>
-        <label for="email">Email osoby odpowiedzialnej:</label><br>
-        <input type="text" id="email" name="email"><br><br>
-        <label for="telefon">Telefon osoby odpowiedzialnej:</label><br>
-        <input type="text" id="telefon" name="telefon"><br><br>
-        <label for="architektura">Opisz dostępność architektoniczna:</label><br>
-        <textarea name="architektura_1" style="width:800px; height:200px;"></textarea><br><br>
-  <button type="submit" value="Submit" form="formularz" onclick = "utworz_text()">Przepisz</button>
-    </fieldset>
-  </form> 
 
-<br>
+
 
     <div class="site-branding" style="width: 980px;">
         <div id="logo">
-            <a href="https://www.multibiblioteka.waw.pl" rel="home"><img src="https://www.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png" alt="Logo biblioteki na targówku"></a>
+            <a href="https://b.multibiblioteka.waw.pl" rel="home"><img src="https://b.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png" alt="Logo biblioteki na targówku"></a>
         </div>
-        <h1 class="site-title"><a href="https://www.multibiblioteka.waw.pl/" rel="home">Biblioteka Publiczna w&nbsp;Dzielnicy Targówek m.st.&nbsp;Warszawy </a></h1>
+        <h1 class="site-title"><a href="https://b.multibiblioteka.waw.pl/" rel="home">Biblioteka Publiczna w&nbsp;Dzielnicy Targówek m.st.&nbsp;Warszawy </a></h1>
     </div>
     <div id="main-content-wrapper">
         <div id="content" class="site-content" style="background-color: white; padding: 30px;">
             <div id="primary" class="content-area index-page" style="padding: 0px;">
-        <!--         <main id="main" class="site-main" role="main">
+                <main id="main" class="site-main" role="main">
                     <div id="a11y-deklaracja">
                         <h1>Deklaracja dostępności</h1>
                         <h2>Wstęp Deklaracji</h2>
@@ -313,21 +231,10 @@
                         </div>
                     </div>
                 </main>
-            --> </div>
+            </div>
             <p><a href="https://www.multibiblioteka.waw.pl" id="a11y-url" title="Link do strony domowej Biblioteki">Powrót do strony głównej Biblioteki.</a></p>
         </div>
     </div>
-
-
-    
-<h1>duda start</h1>
-<div id="duda"></div>
-<script>
-    utworz_text();
-    console.log("koniec caly_tekst --- " + caly_tekst);
-    console.log("koniec bazowy --- " + bazowy);
-    document.getElementById('duda').innerHTML = "wypisanie się: " + caly_tekst;
-</script>
 </body>
 
 </html>
