@@ -104,24 +104,20 @@
 
     <script>
         function utworz_text() {
-           
-        var caly_tekst;
+            
         var bazowy = 'Adres logo %logo%,\n url %url%,\n nazwa podmiotu: %podmiot%,\n architektura %architektura%.';
-            
-      
-            var zformularz = new FormData(document.getElementById('formularz'));
-            var klucze = zformularz.keys();
-            
-            for (var klucz of klucze) {
-                var nazwa_klucza = zformularz.get(klucz);
+        let zformularz = new FormData(document.getElementById('formularz'));
+        let klucze = zformularz.keys();
+          
+            for (let klucz of klucze) {
+                let nazwa_klucza = zformularz.get(klucz);
                 var special = ['architektura'];
                 
                 if (klucz.includes('_')) {
-                    var localKey = klucz.split('_')[0];
+                    let localKey = klucz.split('_')[0];
                     if (typeof this[localKey] !== 'undefined') {
                         this[localKey] = this[localKey] + ' ' + nazwa_klucza;
                     } else {
-    //                    alert('UWAGA: ' + localKey + ' : ' + nazwa_klucza);
                         this[localKey] = nazwa_klucza;
                     }
                 } else {
@@ -129,23 +125,15 @@
                 }
             }
             
-            var counter;
+            let counter;
             
             for (counter = 0 ; counter < special.length ; counter++) {
-                var klucz = special[counter];
+                let klucz = special[counter];
                 bazowy = bazowy.replace('%' + klucz + '%', this[klucz]);
             }
-            
-    //        alert("XXXXXXX " + bazowy);
-            caly_tekst = bazowy;
-            console.log("typ bazowy: " + typeof(bazowy));
-            console.log("typ caly_tekst: " + typeof(caly_tekst));
-            alert("___przed returnem : " + caly_tekst);
-    
-            console.log("przed return caly_tekst *** " + caly_tekst);
-            console.log("przed return bazowy *** " + bazowy);
-            return bazowy;
-        
+
+            bazowy = String(bazowy).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            document.getElementById('duda').innerHTML = bazowy;
         }
     
     </script>
@@ -182,7 +170,7 @@
         <input type="text" id="telefon" name="telefon"><br><br>
         <label for="architektura">Opisz dostępność architektoniczna:</label><br>
         <textarea name="architektura_1" style="width:800px; height:200px;"></textarea><br><br>
-  <button type="submit" value="Submit" form="formularz" onclick = "utworz_text()">Przepisz</button>
+  <button type="submit" value="Submit" form="formularz" onclick = "utworz_text();return false">Przepisz</button>
     </fieldset>
   </form> 
 
@@ -322,12 +310,6 @@
     
 <h1>duda start</h1>
 <div id="duda"></div>
-<script>
-    utworz_text();
-    console.log("koniec caly_tekst --- " + caly_tekst);
-    console.log("koniec bazowy --- " + bazowy);
-    document.getElementById('duda').innerHTML = "wypisanie się: " + caly_tekst;
-</script>
 </body>
 
 </html>
