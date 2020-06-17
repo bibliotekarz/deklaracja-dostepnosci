@@ -1,9 +1,8 @@
-<html>
+var bazowy = `<html>
 
 <head>
     <title>Deklaracja dostępności</title>
-    <meta name="deklaracja-dostępności" content="https://www.multibiblioteka.waw.pl/deklaracja_dostepnosci.html">
-    <!-- link media="all" href="style.css" rel="stylesheet" -->
+    <meta name="deklaracja-dostępności" content="%urldeklaracji%">
     <meta charset="UTF-8" />
     <meta name="description" content="Deklaracja dostępności" />
     <meta name="robots" content="noindex" />
@@ -103,14 +102,11 @@
 </head>
 
 <body>
-
-
-
     <div class="site-branding" style="width: 980px;">
         <div id="logo">
-            <a href="https://b.multibiblioteka.waw.pl" rel="home"><img src="https://b.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png" alt="Logo biblioteki na targówku"></a>
+            <a href="%url%" rel="home"><img src="%urllogo%" alt="Logo %podmiot%"></a>
         </div>
-        <h1 class="site-title"><a href="https://b.multibiblioteka.waw.pl/" rel="home">Biblioteka Publiczna w&nbsp;Dzielnicy Targówek m.st.&nbsp;Warszawy </a></h1>
+        <h1 class="site-title"><a href="%url%/" rel="home">%podmiot%</a></h1>
     </div>
     <div id="main-content-wrapper">
         <div id="content" class="site-content" style="background-color: white; padding: 30px;">
@@ -119,60 +115,23 @@
                     <div id="a11y-deklaracja">
                         <h1>Deklaracja dostępności</h1>
                         <h2>Wstęp Deklaracji</h2>
-                        <p id="a11y-wstep"><span id="a11y-podmiot">Biblioteka Publiczna w Dzielnicy Targówek m.st. Warszawy</span> zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z przepisami ustawy z dnia 4 kwietnia 2019 r. o dostępności cyfrowej
-                            stron internetowych i aplikacji mobilnych podmiotów publicznych. Oświadczenie w sprawie dostępności ma zastosowanie do <a href="https://www.multibiblioteka.waw.pl" id="a11y-url" title="Link do strony domowej Biblioteki">strony internetowej Biblioteki.</a>                            </p>
+                        <p id="a11y-wstep"><span id="a11y-podmiot">%podmiot%</span> zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z przepisami ustawy z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Oświadczenie w sprawie dostępności ma zastosowanie do <a href="%url%" id="a11y-url" title="Link do strony domowej %podmiot%">strony internetowej %podmiot%.</a></p>
 
-                        <p>Data publikacji strony internetowej: <span id="a11y-data-publikacja">2002-11-14</span>.</p>
-                        <p>Data ostatniej dużej aktualizacji: <span id="a11y-data-aktualizacja">2018-09-01</span>.</p>
-
-
-                        <div id="a11y-status">
-                            <p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p>
-                            <ul>
-                                <li>część plików w formacie pdf nie jest dostępnych cyfrowo,</li>
-                                <li>część artykułów ma niepełną strukturę semantyczną,</ul>
-                            </li>
-                            <p>Wyłączenia: </p>
-                            <ul>
-                                <li>mapy są wyłączone z obowiązku zapewniania dostępności</ul>
-                            </li>
-                        </div>
-
-                        <p>Oświadczenie sporządzono dnia <span id="a11y-data-sporzadzenie">2020-03-30</span>. Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
-                        <p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p>
-                        <ol>
-                            <li>wersję kontrastową,</li>
-                            <li>możliwość zmiany rozmiaru tekstu,</li>
-                            <li>widoczny fokus,</li>
-                            <li>wyróżnienie odnośników,</li>
-                            <li>skip linki dla urzadzeń czytających</li>
-                            <li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
-                        </ol>
-                        <p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>
-
-                        <p>Oświadczenie nie dotyczy serwisu katalog.multibiblioteka.waw.pl który nie spełnia wytycznych WCAG 2.1. </p>
-                        <p>Data publikacji strony internetowej: 2011-03-16</p>
-                        <p>Data ostatniej dużej aktualizacji: 2018-09-01</p>
+                        <p>Data publikacji strony internetowej: <span id="a11y-data-publikacja">%data-publikacja%</span>.</p>
+                        <p>Data ostatniej dużej aktualizacji: <span id="a11y-data-aktualizacja">%data-aktualizacja%</span>.</p>
 
 
+                        <div id="a11y-status">%status% 
+                           
+
+                        <p>Oświadczenie sporządzono dnia <span id="a11y-data-sporzadzenie">%data-sporzadzenie%</span>. %opis-strony% 
                         <h2>Informacja dla użytkowników niepełnosprawnych</h2>
-                        <ul>
-                            <li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li>
-                            <li>Na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
-                            <li>Nawigacja jest też przyjazna dla osób niewidomych dzięki unikalnym tytułom podstron i porządkującej funkcji nagłówków.</li>
-                            <li>W całym serwisie włączony jest tzw. fokus, czyli domyślne oznaczenie aktywnego linka czy pola formularza. Fokus przemieszcza się po wszystkich widocznych elementach aktywnych strony w logicznej kolejności – klawisz TAB. </li>
-                            <li>Linki – także te prowadzące do serwisów zewnętrznych – otwierają się w tym samym oknie. </li>
-                            <li>Zachowany jest czytelny kontrast tekstu do tła – dzięki temu materiały osadzone na stronie są czytelne także dla osób słabiej widzących.</li>
-                            <li>Artykuły pisane są zrozumiałym tekstem oraz formatowane w sposób zgodny z zasadami dostępności.</li>
-                            <li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li>
-                        </ul>
-                        <p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p>
+                        %info-user%
 
                         <h2>Informacje zwrotne i dane kontaktowe</h2>
                         <div id="a11y-procedura">
                             <div id="a11y-kontakt">
-                                <p>W przypadku problemów z dostępnością strony internetowej prosimy o kontakt. Osobą odpowiedzialną jest <span id="a11y-osoba">Katarzyna Żółkowska</span> adres poczty elektronicznej <a id="a11y-email" href="mailto:kzolkowska@multibiblioteka.waw.pl">kzolkowska@multibiblioteka.waw.pl</a>                                    lub tel.
-                                    <span id="a11y-telefon">22 814 24 07 w 102</span>. Tą samą drogą można składać wnioski o udostępnienie informacji niedostępnej oraz składać skargi na brak zapewnienia dostępności.</p>
+                                <p>W przypadku problemów z dostępnością strony internetowej prosimy o kontakt. Osobą odpowiedzialną jest <span id="a11y-osoba">%osoba%</span> adres poczty elektronicznej <a id="a11y-email" href="%email%">%email%</a> lub tel. <span id="a11y-telefon">%telefon%</span>. Tą samą drogą można składać wnioski o udostępnienie informacji niedostępnej oraz składać skargi na brak zapewnienia dostępności.</p>
                             </div>
                             <p>Każdy ma prawo do wystąpienia z żądaniem zapewnienia dostępności cyfrowej strony internetowej, aplikacji mobilnej lub jakiegoś ich elementu. Można także zażądać udostępnienia informacji w formach alternatywnych, na przykład
                                 odczytanie niedostępnego cyfrowo dokumentu, opisania zawartości filmu bez audiodeskrypcji itp. Żądanie powinno zawierać dane osoby zgłaszającej żądanie, wskazanie, o którą stronę internetową lub aplikację mobilną chodzi
@@ -183,58 +142,13 @@
                             <p>Po wyczerpaniu wszystkich możliwości skargę można przesłać także do <a href="https://www.rpo.gov.pl/content/jak-zglosic-sie-do-rzecznika-praw-obywatelskich" title="Przekierowanie do strony zewnętrznej">Rzecznika Praw Obywatelskich</a>.</p>
                         </div>
                         <h2>Dostępność architektoniczna</h2>
-                        <div id="a11y-architektura">
-                            <p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
-                                od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
-                                ze zbiorów pomaga bibliotekarz.
-                            </p>
-
-                            <p><b>Biblioteka dla Dzieci i Młodzieży nr 53, Wypożyczalnia dla Dorosłych i Młodzieży nr 2</b> ul. Bazyliańska 6 – lokal usytuowany na piętrze, schody z balustradą brak dostępu dla osób na wózkach, przy budynku znajduje się wyznaczone
-                                miejsce parkingowe dla osób niepełnosprawnych, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki
-                                w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Wypożyczalnia dla Dorosłych i Młodzieży nr 98</b> ul. Kondratowicza 23 – lokal na piętrze, schody z balustradą brak dostępu dla osób na wózkach, przy budynku znajduje się wyznaczone miejsce parkingowe dla osób niepełnosprawnych,
-                                w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Biblioteka dla Dzieci i Młodzieży nr 52, Wypożyczalnia dla Dorosłych i Młodzieży nr 29</b> ul. Rembielińska 6A - lokal na piętrze, schody z balustradą brak dostępu dla osób na wózkach, przy budynku znajduje się wyznaczone
-                                miejsce parkingowe dla osób niepełnosprawnych, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki
-                                w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Wypożyczalnia dla Dorosłych i Młodzieży nr 49</b> ul. Ziemowita 16 – lokal na parterze, dostęp do niego jest bezproblemowy dla osób niepełnosprawnych poruszających się na wózkach inwalidzkich, istnieje możliwość poruszania
-                                się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Biblioteka dla Dzieci i Młodzieży nr 12, Wypożyczalnia dla Dorosłych i Młodzieży nr 64</b> ul. Kuflewska 6 - lokal na piętrze, schody z balustradą brak dostępu dla osób na wózkach, przy budynku znajduje się wyznaczone miejsce
-                                parkingowe dla osób niepełnosprawnych, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
-                                ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Biblioteka dla Dzieci i Młodzieży nr 40, Wypożyczalnia dla Dorosłych i Młodzieży nr 72</b> ul. Suwalska 11 - lokal na piętrze, winda obsługiwana przez pracowników po użyciu dzwonka, schody z balustradą, drzwi otwierane automatycznie,
-                                przy budynku znajduje się wyznaczone miejsce parkingowe dla osób niepełnosprawnych, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka
-                                migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Multimedialna Wypożyczalnia dla Dorosłych i Młodzieży nr 123</b> ul. Św. Wincentego 64 – lokal na parterze, dostęp do niego jest bezproblemowy dla osób niepełnosprawnych poruszających się na wózkach inwalidzkich, w lokalu
-                                istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Wypożyczalnia nr 130 o profilu pedagogicznym</b> ul. Bazyliańska 1 – lokal na parterze, dostęp do niego jest bezproblemowy dla osób niepełnosprawnych poruszających się na wózkach inwalidzkich, przy budynku znajduje się wyznaczone
-                                miejsce parkingowe dla osób niepełnosprawnych, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki
-                                w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Wypożyczalnia dla Dorosłych i Młodzieży nr 85</b> ul. Wysockiego 11 – lokal na parterze w Domu Kultury Świt, wejście po schodach oraz podjazd dla wózków przy drzwiach wejściowych, toaleta dla osób niepełnosprawnych znajduje
-                                się na ternie DK Świt, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów
-                                pomaga bibliotekarz.</p>
-
-                            <p><b>Wypożyczalnia dla Dorosłych i Młodzieży nr 37</b> ul. Smoleńska 94 – wejście od ulicy Św. Wincentego, lokal na parterze, jeden stopień oraz podjazd dla wózków, dostęp do niego jest bezproblemowy dla osób niepełnosprawnych
-                                poruszających się na wózkach inwalidzkich, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
-                                ze zbiorów pomaga bibliotekarz.</p>
-
-                            <p><b>Biblioteka dla Dzieci i Młodzieży nr 65, Wypożyczalnia dla Dorosłych i Młodzieży nr 60</b> ul. Krasnobrodzka 11 - lokal usytuowany na piętrze, winda, przy budynku znajduje się wyznaczone miejsce parkingowe dla osób niepełnosprawnych,
-                                w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>
-                        </div>
+                        <div id="a11y-architektura">%architektura_1%                        </div>
                     </div>
                 </main>
             </div>
-            <p><a href="https://www.multibiblioteka.waw.pl" id="a11y-url" title="Link do strony domowej Biblioteki">Powrót do strony głównej Biblioteki.</a></p>
+            <p><a href="%url%" id="a11y-url" title="Link do strony domowej %podmiot%">Powrót do strony głównej %podmiot%.</a></p>
         </div>
     </div>
 </body>
 
-</html>
+</html>`;

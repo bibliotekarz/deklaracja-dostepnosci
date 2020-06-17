@@ -105,7 +105,160 @@
     <script>
         function utworz_text() {
             
-        var bazowy = 'Adres logo %logo%,\n url %url%,\n nazwa podmiotu: %podmiot%,\n architektura %architektura%.';
+            var bazowy = `<html>
+
+                <head>
+                    <title>Deklaracja dostępności</title>
+                    <meta name="deklaracja-dostępności" content="%urldeklaracji%">
+                    <meta charset="UTF-8" />
+                    <meta name="description" content="Deklaracja dostępności" />
+                    <meta name="robots" content="noindex" />
+                    <style type="text/css">
+                        body {
+                            margin: 0;
+                            font-size: .813em;
+                            line-height: 1.385em;
+                            color: #575757;
+                        }
+                        
+                        #content {
+                            width: 100%;
+                            background-color: white;
+                            padding: 30px;
+                        }
+                        
+                        .site-branding {
+                            width: 100%;
+                            min-height: 93px;
+                            height: 120px;
+                            margin: 0 auto;
+                            display: table;
+                        }
+                        
+                        #logo {
+                            vertical-align: middle;
+                            display: table-cell;
+                        }
+                        
+                        a,
+                        a:visited {
+                            color: #575757;
+                        }
+                        
+                        #logo img {
+                            display: block;
+                            margin-right: 20px;
+                            margin-left: -20px;
+                            max-width: none;
+                        }
+                        
+                        .site-title a,
+                        .site-title a:visited {
+                            color: #000;
+                            border-color: transparent;
+                            border-top-color: transparent;
+                            border-right-color: transparent;
+                            border-bottom-color: transparent;
+                            border-left-color: transparent;
+                            display: inline-block;
+                            text-decoration: none;
+                        }
+                        
+                        .site-title {
+                            border: none;
+                            display: table-cell;
+                            vertical-align: middle;
+                            font-size: 1.846em;
+                            font-family: Mukta;
+                            color: #000;
+                            line-height: 110%;
+                            font-kerning: normal;
+                            letter-spacing: 3px;
+                            text-transform: uppercase;
+                        }
+                        
+                        #main-content-wrapper {
+                            width: 980px;
+                            margin: 0 auto;
+                            background-color: #fff;
+                            -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
+                            -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
+                            box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
+                            position: relative;
+                            z-index: 1;
+                        }
+                        
+                        h1 {
+                            font-size: 1.769em;
+                            clear: both;
+                            font-weight: 400;
+                            color: #154d88;
+                            margin: 25px 0 20px;
+                            line-height: 1.1em;
+                        }
+                        
+                        h2 {
+                            font-size: 1.615em;
+                            clear: both;
+                            font-weight: 400;
+                            color: #154d88;
+                            margin: 25px 0 20px;
+                            line-height: 1.1em;
+                        }
+                    </style>
+                </head>
+                
+                <body>
+                    <div class="site-branding" style="width: 980px;">
+                        <div id="logo">
+                            <a href="%urlwww%" rel="home"><img src="%urllogo%" alt="Logo %podmiot%"></a>
+                        </div>
+                        <h1 class="site-title"><a href="%urlwww%" rel="home"> %podmiot% </a></h1>
+                    </div>
+                    <div id="main-content-wrapper">
+                        <div id="content" class="site-content" style="background-color: white; padding: 30px;">
+                            <div id="primary" class="content-area index-page" style="padding: 0px;">
+                                <main id="main" class="site-main" role="main">
+                                    <div id="a11y-deklaracja">
+                                        <h1>Deklaracja dostępności</h1>
+                                        <h2>Wstęp Deklaracji</h2>
+                                        <p id="a11y-wstep"><span id="a11y-podmiot">%podmiot%</span> zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z przepisami ustawy z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych. Oświadczenie w sprawie dostępności ma zastosowanie do <a href="%urlwww%" id="a11y-url" title="Link do strony domowej %podmiot%">strony internetowej %podmiot%.</a></p>
+                
+                                        <p>Data publikacji strony internetowej: <span id="a11y-data-publikacja">%data-publikacja%</span>.</p>
+                                        <p>Data ostatniej dużej aktualizacji: <span id="a11y-data-aktualizacja">%data-aktualizacja%</span>.</p>
+                
+                
+                                        <div id="a11y-status">%status% 
+                                           
+                
+                                        <p>Oświadczenie sporządzono dnia <span id="a11y-data-sporzadzenie">%data-sporzadzenie%</span>. %opis-strony% 
+                                        <h2>Informacja dla użytkowników niepełnosprawnych</h2>
+                                        %info-user%
+                
+                                        <h2>Informacje zwrotne i dane kontaktowe</h2>
+                                        <div id="a11y-procedura">
+                                            <div id="a11y-kontakt">
+                                                <p>W przypadku problemów z dostępnością strony internetowej prosimy o kontakt. Osobą odpowiedzialną jest <span id="a11y-osoba">%osoba%</span> adres poczty elektronicznej <a id="a11y-email" href="%email%">%email%</a> lub tel. <span id="a11y-telefon">%telefon%</span>. Tą samą drogą można składać wnioski o udostępnienie informacji niedostępnej oraz składać skargi na brak zapewnienia dostępności.</p>
+                                            </div>
+                                            <p>Każdy ma prawo do wystąpienia z żądaniem zapewnienia dostępności cyfrowej strony internetowej, aplikacji mobilnej lub jakiegoś ich elementu. Można także zażądać udostępnienia informacji w formach alternatywnych, na przykład
+                                                odczytanie niedostępnego cyfrowo dokumentu, opisania zawartości filmu bez audiodeskrypcji itp. Żądanie powinno zawierać dane osoby zgłaszającej żądanie, wskazanie, o którą stronę internetową lub aplikację mobilną chodzi
+                                                oraz sposób kontaktu. Jeżeli osoba żądająca zgłasza potrzebę otrzymania informacji w formie alternatywnej, powinna także określić formę tej informacji.</p>
+                                            <p>Podmiot publiczny powinien zrealizować żądanie niezwłocznie i nie później, niż w ciągu 7 dni. Jeżeli dotrzymanie tego terminu nie jest możliwe, podmiot publiczny niezwłocznie informuje o tym, kiedy realizacja żądania będzie
+                                                możliwa, przy czym termin ten nie może być dłuższy niż 2 miesiące. Jeżeli zapewnienie dostępności nie jest możliwe, podmiot publiczny może zaproponować alternatywny sposób dostępu do informacji.</p>
+                                            <p>W przypadku, gdy podmiot odmówi realizacji żądania zapewnienia dostępności lub alternatywnego dostępu do informacji, można złożyć skargę na takie działanie.</p>
+                                            <p>Po wyczerpaniu wszystkich możliwości skargę można przesłać także do <a href="https://www.rpo.gov.pl/content/jak-zglosic-sie-do-rzecznika-praw-obywatelskich" title="Przekierowanie do strony zewnętrznej">Rzecznika Praw Obywatelskich</a>.</p>
+                                        </div>
+                                        <h2>Dostępność architektoniczna</h2>
+                                        <div id="a11y-architektura">%architektura_1%                        </div>
+                                    </div>
+                                </main>
+                            </div>
+                            <p><a href="%urlwww%" id="a11y-url" title="Link do strony domowej %podmiot%">Powrót do strony głównej %podmiot%.</a></p>
+                        </div>
+                    </div>
+                </body>
+                
+                </html>`;
         let zformularz = new FormData(document.getElementById('formularz'));
         let klucze = zformularz.keys();
           
@@ -137,25 +290,28 @@
         }
     
     </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
     <br><br>
-<form id="formularz">
+<form id="formularz" class="w3-container w3-card-4">
     <fieldset>
         <legend>Wypełnij poniższy formularz:</legend>
-        <label for="logo">ścieżka do grafiki logo:</label><br>
-        <input type="text" id="logo" name="logo" value="https://b.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br><br>
-        <label for="url">Adres Twojej strony wwww:</label><br>
-        <input type="text" id="url" name="url" value="https://b.multibiblioteka.waw.pl/"><br><br>
-        <label for="podmiot">Nazwa firmy:</label><br>
-        <input type="text" id="podmiot" name="podmiot" value="Biblioteka Publiczna w Dzielnicy Targówek m.st. Warszawy"><br><br>
-        <label for="data-publikacja">Data publikacji strony internetowej:</label><br>
-        <input type="text" id="data-publikacja" name="data-publikacja" value="2002-11-14"><br><br>
-        <label for="data-aktualizacja">Data ostatniej dużej aktualizacji:</label><br>
-        <input type="text" id="data-aktualizacja" name="data-aktualizacja" value="2018-09-01"><br><br>
-        <label for="status">Opisz status zgodności strony z ustawą:</label><br>
-        <textarea name="status" style="width:800px; height:200px;"><p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p>
+        <label  class="w3-text-blue" for="urldeklaracji">adres do strony z deklaracją dostępności:</label><br>
+        <input class="w3-input w3-border" type="text" id="urldeklaracji" name="urldeklaracji" value="https://www.multibiblioteka.waw.pl/deklaracja_dostepnosci.html"><br><br>
+        <label  class="w3-text-blue" for="urllogo">ścieżka do grafiki logo:</label><br>
+        <input class="w3-input w3-border" type="text" id="urllogo" name="urllogo" value="https://b.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br><br>
+        <label  class="w3-text-blue" for="urlwww">Adres Twojej strony wwww:</label><br>
+        <input class="w3-input w3-border" type="text" id="urlwww" name="urlwww" value="https://b.multibiblioteka.waw.pl"><br><br>
+        <label class="w3-text-blue" for="podmiot">Nazwa firmy:</label><br>
+        <input class="w3-input w3-border" type="text" id="podmiot" name="podmiot" value="Biblioteka Publiczna w Dzielnicy Targówek m.st. Warszawy"><br><br>
+        <label class="w3-text-blue" for="data-publikacja">Data publikacji strony internetowej:</label><br>
+        <input class="w3-input w3-border" type="text" id="data-publikacja" name="data-publikacja" value="2002-11-14"><br><br>
+        <label class="w3-text-blue" for="data-aktualizacja">Data ostatniej dużej aktualizacji:</label><br>
+        <input class="w3-input w3-border" type="text" id="data-aktualizacja" name="data-aktualizacja" value="2018-09-01"><br><br>
+        <label class="w3-text-blue" for="status">Opisz status zgodności strony z ustawą:</label><br>
+        <textarea class="w3-input w3-border" name="status" style="height:200px;"><p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p>
             <ul>
                 <li>część plików w formacie pdf nie jest dostępnych cyfrowo,</li>
                 <li>część artykułów ma niepełną strukturę semantyczną,</li>
@@ -165,10 +321,10 @@
             <ul>
                 <li>mapy są wyłączone z obowiązku zapewniania dostępności</li>
             </ul></textarea><br><br>
-        <label for="data-sporzadzenie">Data sporządzenia deklaracji:</label><br>
-        <input type="text" id="data-sporzadzenie" name="data-sporzadzenie" value="2020-03-30"><br><br>
-        <label for="opis-strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
-        <textarea name="opis-strony" style="width:800px; height:200px;"><p>Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
+        <label class="w3-text-blue" for="data-sporzadzenie">Data sporządzenia deklaracji:</label><br>
+        <input class="w3-input w3-border" type="text" id="data-sporzadzenie" name="data-sporzadzenie" value="2020-03-30"><br><br>
+        <label class="w3-text-blue" for="opis-strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
+        <textarea class="w3-input w3-border" name="opis-strony" style="height:200px;"><p>Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p>
             <p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p>
             <ol>
                 <li>wersję kontrastową,</li>
@@ -179,8 +335,8 @@
                 <li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
             </ol>
             <p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p></textarea><br><br>
-        <label for="info-user">Informacja dla użytkowników niepełnosprawnych:</label><br>
-        <textarea name="info-user" style="width:800px; height:200px;"><ul>
+        <label class="w3-text-blue" for="info-user">Informacja dla użytkowników niepełnosprawnych:</label><br>
+        <textarea class="w3-input w3-border" name="info-user" style="height:200px;"><ul>
             <li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li>
             <li>Na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
             <li>Nawigacja jest też przyjazna dla osób niewidomych dzięki unikalnym tytułom podstron i porządkującej funkcji nagłówków.</li>
@@ -191,14 +347,14 @@
             <li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li>
         </ul>
         <p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p></textarea><br><br>
-        <label for="osoba">Osoba odpowiedzialna:</label><br>
-        <input type="text" id="osoba" name="osoba" value="Katarzyna Żółkowska"><br><br>
-        <label for="email">Email osoby odpowiedzialnej:</label><br>
-        <input type="text" id="email" name="email" value="kzolkowska@multibiblioteka.waw.pl"><br><br>
-        <label for="telefon">Telefon osoby odpowiedzialnej:</label><br>
-        <input type="text" id="telefon" name="telefon" value="22 814 24 07 w 102"><br><br>
-        <label for="architektura">Opisz dostępność architektoniczna:</label><br>
-        <textarea name="architektura_1" style="width:800px; height:200px;"><p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
+        <label class="w3-text-blue" for="osoba">Osoba odpowiedzialna:</label><br>
+        <input class="w3-input w3-border" type="text" id="osoba" name="osoba" value="Katarzyna Żółkowska"><br><br>
+        <label class="w3-text-blue" for="email">Email osoby odpowiedzialnej:</label><br>
+        <input class="w3-input w3-border" type="text" id="email" name="email" value="kzolkowska@multibiblioteka.waw.pl"><br><br>
+        <label class="w3-text-blue" for="telefon">Telefon osoby odpowiedzialnej:</label><br>
+        <input class="w3-input w3-border" type="text" id="telefon" name="telefon" value="22 814 24 07 w 102"><br><br>
+        <label class="w3-text-blue" for="architektura">Opisz dostępność architektoniczna:</label><br>
+        <textarea class="w3-input w3-border" name="architektura_1" style="height:200px;"><p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
             od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
             ze zbiorów pomaga bibliotekarz.
         </p></textarea><br><br>
