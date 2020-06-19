@@ -274,8 +274,13 @@
                         this[localKey] = nazwa_klucza;
                     }
                 } else {
-                    bazowy = bazowy.replace('%' + klucz + '%', nazwa_klucza);
-                }
+                    console.log("bazowy" + bazowy.indexOf(klucz));
+/*                    for (bazowy.indexOf(klucz) > 0) {
+                        console.log(klucz);
+                        bazowy = bazowy.replace('%' + klucz + '%', nazwa_klucza);
+                        console.log("pętla for");
+                    }
+  */              }
             }
             
             let counter;
