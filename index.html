@@ -262,7 +262,7 @@
         let zformularz = new FormData(document.getElementById('formularz'));
         let klucze = zformularz.keys();
           
-            for (let klucz of klucze) {
+            for (var klucz of klucze) {
                 let nazwa_klucza = zformularz.get(klucz);
                 var special = ['architektura'];
                 
@@ -274,15 +274,20 @@
                         this[localKey] = nazwa_klucza;
                     }
                 } else {
-                    console.log("bazowy" + bazowy.indexOf(klucz));
+                    console.log("bazowy " + bazowy.indexOf(klucz));
 /*                    for (bazowy.indexOf(klucz) > 0) {
                         console.log(klucz);
                         bazowy = bazowy.replace('%' + klucz + '%', nazwa_klucza);
                         console.log("pętla for");
                     }
   */              }
-            }
-            
+
+            var adrian = [];
+            adrian.push(klucz);
+            alert("adrianna: " + adrianna); 
+            alert("adrian: " + adrian); 
+                }
+// alert("adrianna: " + adrianna[0]);
             let counter;
             
             for (counter = 0 ; counter < special.length ; counter++) {
