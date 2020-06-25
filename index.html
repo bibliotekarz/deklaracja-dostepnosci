@@ -277,18 +277,27 @@
         i=1;
 function wstaw2() {  
     i++;  
-    var tekst = document.createTextNode('Dodaj lokalizację nr '+i+': ');  
+ //   var tekst = document.createTextNode('Dodaj lokalizację nr '+i+': ');  
+ 
+ var br    = document.createElement('br');  
+ var div   = document.createElement('div'); 
+    var label = document.createElement('label');
+    label.setAttribute('class', 'w3-text-blue');
+    label.setAttribute('for', 'architektura'+ i);
+    var tekst = 'Opisz dostępność architektoniczną w lokalizacji numer '+i+':';
+    label.innerText= tekst;
     var input = document.createElement('textarea');            
     input.setAttribute('name', 'architektura'+ i);  
     input.setAttribute('style', 'height:200px;');
     input.setAttribute('class', 'w3-input w3-border');
-    var br    = document.createElement('br');  
-    var div   = document.createElement('div');      
-    div.appendChild(tekst);      
+    div.appendChild(br);
+    div.appendChild(label);
+    div.appendChild(br);     
     div.appendChild(input);      
-    div.appendChild(br);  
-    document.getElementById('koleje_lokalizacje').appendChild(div);
-    alert("po wszystkim");
+ //   div.appendChild(br);  
+    document.getElementById('kolejne_lokalizacje').appendChild(div);
+    alert(label);
+    alert(input);
 }
 
     </script>
@@ -372,7 +381,8 @@ function wstaw2() {
             <textarea class="w3-input w3-border" name="architektura" style="height:200px;"><p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
             od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
             ze zbiorów pomaga bibliotekarz.
-        </p></textarea><br><span id="koleje_lokalizacje"></span><br>
+        </p></textarea><br><br>
+        <span id="kolejne_lokalizacje"></span><br>
         <input type="button" value="dodaj kolejną lokalizację" onclick="wstaw2()" />
         <br><br>
             <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz</button>
