@@ -274,6 +274,23 @@
 
         }
 
+        i=1;
+function wstaw2() {  
+    i++;  
+    var tekst = document.createTextNode('Dodaj lokalizację nr '+i+': ');  
+    var input = document.createElement('textarea');            
+    input.setAttribute('name', 'architektura'+ i);  
+    input.setAttribute('style', 'height:200px;');
+    input.setAttribute('class', 'w3-input w3-border');
+    var br    = document.createElement('br');  
+    var div   = document.createElement('div');      
+    div.appendChild(tekst);      
+    div.appendChild(input);      
+    div.appendChild(br);  
+    document.getElementById('koleje_lokalizacje').appendChild(div);
+    alert("po wszystkim");
+}
+
     </script>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -281,6 +298,7 @@
 
 <body>
     <br><br>
+    <hr>
     <form id="formularz" class="w3-container w3-card-4">
         <fieldset>
             <legend>Wypełnij poniższy formularz:</legend>
@@ -350,11 +368,13 @@
             <label class="w3-text-blue" for="telefon">Telefon osoby odpowiedzialnej:</label><br>
             <input class="w3-input w3-border" type="text" id="telefon" name="telefon"
                 value="22 814 24 07 w 102"><br><br>
-            <label class="w3-text-blue" for="architektura">Opisz dostępność architektoniczna:</label><br>
+            <label class="w3-text-blue" for="architektura">Opisz dostępność architektoniczną podstawowej lokalizacji:</label><br>
             <textarea class="w3-input w3-border" name="architektura" style="height:200px;"><p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
             od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
             ze zbiorów pomaga bibliotekarz.
-        </p></textarea><br><br>
+        </p></textarea><br><span id="koleje_lokalizacje"></span><br>
+        <input type="button" value="dodaj kolejną lokalizację" onclick="wstaw2()" />
+        <br><br>
             <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz</button>
         </fieldset>
     </form>
