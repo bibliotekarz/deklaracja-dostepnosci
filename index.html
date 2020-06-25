@@ -107,6 +107,16 @@
 
             let zformularz = new FormData(document.getElementById('formularz'));
             let klucze = zformularz.keys();
+
+            if(zformularz.get('info_user').match(/^\s*$/g)) {
+                niepelnosprawni = "";
+                console.log(niepelnosprawni);
+            }else{
+                niepelnosprawni = `<h2>Informacja dla użytkowników niepełnosprawnych</h2>
+                ${zformularz.get('info_user')}`;
+                
+                console.log(niepelnosprawni);
+            }
             var bazowy = `<html>
 
                 <head>
@@ -234,8 +244,7 @@
                                            
                 
                                         <p>Oświadczenie sporządzono dnia <span id="a11y-data_sporzadzenie">${zformularz.get('data_sporzadzenie')}</span>. ${zformularz.get('opis_strony')} 
-                                        <h2>Informacja dla użytkowników niepełnosprawnych</h2>
-                                        ${zformularz.get('info_user')}
+                                        ${niepelnosprawni}
                 
                                         <h2>Informacje zwrotne i dane kontaktowe</h2>
                                         <div id="a11y-procedura">
