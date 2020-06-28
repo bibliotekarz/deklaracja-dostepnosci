@@ -107,15 +107,24 @@
 
             let zformularz = new FormData(document.getElementById('formularz'));
             let klucze = zformularz.keys();
-
+            var dodane = "";
+            for (let klucz of klucze) {
+                    let nazwa_klucza = zformularz.get(klucz); 
+                    if (klucz.includes('architektura_')){      
+                    //    let doda = " <p> " + zformularz.get(klucz) +  " </p> ";    
+                        let doda = " " +zformularz.get(klucz) + " ";
+                        dodane = dodane + doda;
+                    }
+            }
+            
             if(zformularz.get('info_user').match(/^\s*$/g)) {
                 niepelnosprawni = "";
-                console.log(niepelnosprawni);
+//                console.log(niepelnosprawni);
             }else{
                 niepelnosprawni = `<h2>Informacja dla użytkowników niepełnosprawnych</h2>
                 ${zformularz.get('info_user')}`;
                 
-                console.log(niepelnosprawni);
+//                console.log(niepelnosprawni);
             }
             var bazowy = `<html>
 
@@ -260,7 +269,7 @@
                                             <p>Po wyczerpaniu wszystkich możliwości skargę można przesłać także do <a href="https://www.rpo.gov.pl/content/jak-zglosic-sie-do-rzecznika-praw-obywatelskich" title="Przekierowanie do strony zewnętrznej">Rzecznika Praw Obywatelskich</a>.</p>
                                         </div>
                                         <h2>Dostępność architektoniczna</h2>
-                                        <div id="a11y-architektura">${zformularz.get('architektura')}</div>
+                                        <div id="a11y-architektura">${zformularz.get('architektura')} ${dodane}</div>
                                     </div>
                                 </main>
                             </div>
@@ -285,11 +294,11 @@ function wstaw2() {
  var div   = document.createElement('div'); 
     var label = document.createElement('label');
     label.setAttribute('class', 'w3-text-blue');
-    label.setAttribute('for', 'architektura'+ i);
+    label.setAttribute('for', 'architektura_'+ i);
     var tekst = 'Opisz dostępność architektoniczną w lokalizacji numer '+i+':';
     label.innerText= tekst;
     var input = document.createElement('textarea');            
-    input.setAttribute('name', 'architektura'+ i);  
+    input.setAttribute('name', 'architektura_'+ i);  
     input.setAttribute('style', 'height:200px;');
     input.setAttribute('class', 'w3-input w3-border');
     div.appendChild(label);
@@ -298,8 +307,8 @@ function wstaw2() {
     div.appendChild(br1);  
     div.appendChild(br2);  
     document.getElementById('kolejne_lokalizacje').appendChild(div);
-    alert(label);
-    alert(input);
+//    alert(label);
+//    alert(input);
 }
 
     </script>
