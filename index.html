@@ -280,6 +280,8 @@ function wstaw2() {
  //   var tekst = document.createTextNode('Dodaj lokalizację nr '+i+': ');  
  
  var br    = document.createElement('br');  
+ var br1   = document.createElement('br');  
+ var br2   = document.createElement('br');   
  var div   = document.createElement('div'); 
     var label = document.createElement('label');
     label.setAttribute('class', 'w3-text-blue');
@@ -290,11 +292,11 @@ function wstaw2() {
     input.setAttribute('name', 'architektura'+ i);  
     input.setAttribute('style', 'height:200px;');
     input.setAttribute('class', 'w3-input w3-border');
-    div.appendChild(br);
     div.appendChild(label);
     div.appendChild(br);     
     div.appendChild(input);      
- //   div.appendChild(br);  
+    div.appendChild(br1);  
+    div.appendChild(br2);  
     document.getElementById('kolejne_lokalizacje').appendChild(div);
     alert(label);
     alert(input);
