@@ -7,6 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="description" content="Deklaracja dostępności" />
     <meta name="robots" content="noindex" />
+    
     <style type="text/css">
         body {
             margin: 0;
@@ -311,9 +312,13 @@ function wstaw2() {
 //    alert(input);
 }
 
+function download(){
+var blob = new Blob([" tekst do pliku"],{type:"text/plain;charset=utf-8"});
+saveAs(blob,"deklaracja_dostepnosci.html");
+}
     </script>
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="js/FileSaver.min.js" ></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 </head>
 
 <body>
@@ -405,6 +410,14 @@ function wstaw2() {
     <p>Skopiuj treść z okna poniżej do notatnika, zapisz plik jako deklaracja_dostepnosci.html i wyślij na serwer do
         katalogu głównego Twojego serwisu internetowego.</p>
     <textarea class="w3-input w3-border" name="architektura" style="height:600px;" id="duda"></textarea>
+
+    
+    <h1>tere tero</h1>
+    <form name="pobierz_plik"> 
+        <input type="button" onClick="download();" value="zapisz plik deklaracji">
+    </form> 
+
+    
 </body>
 
 </html>
