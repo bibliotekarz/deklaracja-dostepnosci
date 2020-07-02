@@ -1,0 +1,91 @@
+        body {
+            margin: 0;
+            font-size: .813em;
+            line-height: 1.385em;
+            color: #575757;
+        }
+
+        #content {
+            width: 100%;
+            background-color: white;
+            padding: 30px;
+        }
+
+        .site-branding {
+            width: 100%;
+            min-height: 93px;
+            height: 120px;
+            margin: 0 auto;
+            display: table;
+        }
+
+        #logo {
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        a,
+        a:visited {
+            color: #575757;
+        }
+
+        #logo img {
+            display: block;
+            margin-right: 20px;
+            margin-left: -20px;
+            max-width: none;
+        }
+
+        .site-title a,
+        .site-title a:visited {
+            color: #000;
+            border-color: transparent;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .site-title {
+            border: none;
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 1.846em;
+            font-family: Mukta;
+            color: #000;
+            line-height: 110%;
+            font-kerning: normal;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        #main-content-wrapper {
+            width: 980px;
+            margin: 0 auto;
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
+            /*    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08); */
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 1.769em;
+            clear: both;
+            font-weight: 400;
+            color: #154d88;
+            margin: 25px 0 20px;
+            line-height: 1.1em;
+        }
+
+        h2 {
+            font-size: 1.615em;
+            clear: both;
+            font-weight: 400;
+            color: #154d88;
+            margin: 25px 0 20px;
+            line-height: 1.1em;
+        }
