@@ -7,8 +7,10 @@
     <meta name="robots" content="index" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/pell.css">
     <script src="js/generator.js" ></script>
     <script src="js/FileSaver.min.js" ></script>
+    <script src="js/pell.js" ></script>
 </head>
 
 <body>
@@ -61,7 +63,27 @@
                 <li>skip linki dla urzadzeń czytających</li>
                 <li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li>
             </ol>
-            <p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p></textarea><br><br>
+            <p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p></textarea><br>
+            
+            <div  class="content">
+            <div id="editor" class="pell"></div>
+            <br>
+            <pre id="html-output">sds</pre>
+            <script>
+                var editor = window.pell.init({
+                  element: document.getElementById('editor'),
+                  defaultParagraphSeparator: 'p',
+                  onChange: function (html) {
+                    document.getElementById('text-output').innerHTML = html
+                    document.getElementById('html-output').textContent = html
+                  }
+                })
+                editor.content.innerHTML = '<p>Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p><p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p><ol><li>wersję kontrastową,</li><li>możliwość zmiany rozmiaru tekstu,</li><li>widoczny fokus,</li><li>wyróżnienie odnośników,</li><li>skip linki dla urzadzeń czytających</li><li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li></ol><p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>'
+              </script>
+            </div>
+
+            <br>  
+            <br>
             <label class="w3-text-blue" for="info_user">Informacja dla użytkowników niepełnosprawnych:</label><br>
             <textarea class="w3-input w3-border" name="info_user"
                 style="height:200px;"><ul>
