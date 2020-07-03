@@ -1,24 +1,30 @@
 function utworz_text() {
+    let opis_strony1 = document.getElementById('html-output').textContent;
+    let info_user1 = document.getElementById('html-output-info_user').textContent;
+    let status1 = document.getElementById('html-output-status').textContent;
+    alert(info_user1.match(/^\s*$/g));
+    //TODO: wywalić te 1 z nazwy
 
+    console.log(opis_strony1);
     let zformularz = new FormData(document.getElementById('formularz'));
     let klucze = zformularz.keys();
     var dodane = "";
     for (let klucz of klucze) {
-            let nazwa_klucza = zformularz.get(klucz); 
-            if (klucz.includes('architektura_')){        
-                let doda = " " +zformularz.get(klucz) + " ";
-                dodane = dodane + doda;
-            }
+        let nazwa_klucza = zformularz.get(klucz);
+        if (klucz.includes('architektura_')) {
+            let doda = " " + zformularz.get(klucz) + " ";
+            dodane = dodane + doda;
+        }
     }
-    
-    if(zformularz.get('info_user').match(/^\s*$/g)) {
+
+    if (info_user1.match(/^\s*$/g)) {
         niepelnosprawni = "";
-//                console.log(niepelnosprawni);
-    }else{
+        console.log(niepelnosprawni);
+    } else {
         niepelnosprawni = `<h2>Informacja dla użytkowników niepełnosprawnych</h2>
-        ${zformularz.get('info_user')}`;
-        
-//                console.log(niepelnosprawni);
+        ${info_user1}`;
+
+        console.log(niepelnosprawni);
     }
     var bazowy = `<html>
 
@@ -52,10 +58,10 @@ function utworz_text() {
                                 <p>Data ostatniej dużej aktualizacji: <span id="a11y-data_aktualizacja">${zformularz.get('data_aktualizacja')}</span>.</p>
         
         
-                                <div id="a11y-status">${zformularz.get('status')} 
+                                <div id="a11y-status">${status1} 
                                    
         
-                                <p>Oświadczenie sporządzono dnia <span id="a11y-data_sporzadzenie">${zformularz.get('data_sporzadzenie')}</span>. ${zformularz.get('opis_strony')} 
+                                <p>Oświadczenie sporządzono dnia <span id="a11y-data_sporzadzenie">${zformularz.get('data_sporzadzenie')}</span>. ${opis_strony1} 
                                 ${niepelnosprawni}
         
                                 <h2>Informacje zwrotne i dane kontaktowe</h2>
@@ -86,35 +92,36 @@ function utworz_text() {
 
 }
 
-i=1;
-function wstaw2() {  
-i++;  
-//   var tekst = document.createTextNode('Dodaj lokalizację nr '+i+': ');  
+i = 1;
 
-var br    = document.createElement('br');  
-var br1   = document.createElement('br');  
-var br2   = document.createElement('br');   
-var div   = document.createElement('div'); 
-var label = document.createElement('label');
-label.setAttribute('class', 'w3-text-blue');
-label.setAttribute('for', 'architektura_'+ i);
-var tekst = 'Opisz dostępność architektoniczną w lokalizacji numer '+i+':';
-label.innerText= tekst;
-var input = document.createElement('textarea');            
-input.setAttribute('name', 'architektura_'+ i);  
-input.setAttribute('style', 'height:200px;');
-input.setAttribute('class', 'w3-input w3-border');
-div.appendChild(label);
-div.appendChild(br);     
-div.appendChild(input);      
-div.appendChild(br1);  
-div.appendChild(br2);  
-document.getElementById('kolejne_lokalizacje').appendChild(div);
+function wstaw2() {
+    i++;
+    //   var tekst = document.createTextNode('Dodaj lokalizację nr '+i+': ');  
+
+    var br = document.createElement('br');
+    var br1 = document.createElement('br');
+    var br2 = document.createElement('br');
+    var div = document.createElement('div');
+    var label = document.createElement('label');
+    label.setAttribute('class', 'w3-text-blue');
+    label.setAttribute('for', 'architektura_' + i);
+    var tekst = 'Opisz dostępność architektoniczną w lokalizacji numer ' + i + ':';
+    label.innerText = tekst;
+    var input = document.createElement('textarea');
+    input.setAttribute('name', 'architektura_' + i);
+    input.setAttribute('style', 'height:200px;');
+    input.setAttribute('class', 'w3-input w3-border');
+    div.appendChild(label);
+    div.appendChild(br);
+    div.appendChild(input);
+    div.appendChild(br1);
+    div.appendChild(br2);
+    document.getElementById('kolejne_lokalizacje').appendChild(div);
 
 }
 
-function download(){
-let pobierz = [duda.value];
-var blob = new Blob(pobierz,{type:"text/html;charset=utf-8"});
-saveAs(blob,"deklaracja_dostepnosci.html");
+function download() {
+    let pobierz = [duda.value];
+    var blob = new Blob(pobierz, { type: "text/html;charset=utf-8" });
+    saveAs(blob, "deklaracja_dostepnosci.html");
 }
