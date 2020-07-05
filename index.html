@@ -14,120 +14,132 @@
 
 <body>
     <h1>Generator deklaracji dostępności.</h1>
-    <p>Mając na uwadze wymogi link do ustawy. Wszystkie Biblioteki Publiczne i inne jednostki powinny mieć dokument określający stopień dostępnosci ich strone www, aplikacji oraz dostępność architektoniczną.</p>
-    <p>Poniższy generator powinien ułatwić życie redaktorom strony internetowej jako że wszelkie nałożone ustawą rozporzadzeniem metatagi wygenerują się automatycznie. 
+    <p>Mając na uwadze wymogi <a href="http://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20190000848" target="blank">art. 12 pkt 7 ustawy z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych (Dz. U. poz. 848)</a>. Wszystkie Biblioteki Publiczne i inne podmioty publiczne powinny mieć dokument
+        określający stopień dostępnosci ich strone www, aplikacji oraz dostępność architektoniczną.</p>
+    <p>Poniższy generator powinien ułatwić życie redaktorom strony internetowej jako że wszelkie nałożone <a href="https://mc.bip.gov.pl/objasnienia-prawne/warunki-techniczne-publikacji-oraz-struktura-dokumentu-elektronicznego-deklaracji-dostepnosci.html" target="blank">&raquo;Warunki techniczne publikacji oraz struktura dokumentu elektronicznego "Deklaracji Dostępności" &laquo;</a> metatagi wygenerują się w nim automatycznie. (stan na dzień 1 lipca 2020r) 
         Wystarczy wprowadzić dane opisowe we właściwe pola, pobrać plik i osadzić go na swojej stronie.</p>
-    <p>Generator nie zbiera i nie zapisuje żadnych danych :) ze źródłem możesz się zapoznać pod adresem gitcośtam.</p>    
+    <p>Generator nie zbiera i nie zapisuje żadnych danych :) ze źródłem możesz się zapoznać pod adresem gitcośtam.</p>
+
     <br>
     <form id="formularz" class="w3-container w3-card-4">
         <fieldset>
             <legend>Do dzieła! wypełnij poniższy formularz:</legend>
             <br>
             <label class="w3-text-blue" for="urldeklaracji">Adres do strony z deklaracją dostępności:</label><br>
-            <input class="w3-input w3-border" type="text" id="urldeklaracji" name="urldeklaracji" value="https://www.multibiblioteka.waw.pl/deklaracja_dostepnosci.html"><br><br>
+            <input class="w3-input w3-border" type="text" id="urldeklaracji" name="urldeklaracji"
+                value="https://www.bibliotekarz.com/deklaracja_dostepnosci.html"><br><br>
             <label class="w3-text-blue" for="urllogo">Ścieżka do grafiki logo:</label><br>
-            <input class="w3-input w3-border" type="text" id="urllogo" name="urllogo" value="https://b.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br><br>
+            <input class="w3-input w3-border" type="text" id="urllogo" name="urllogo"
+                value="https://b.multibiblioteka.waw.pl/wp-content/uploads/2019/08/nowe_logo_bibliotek_przezroczyste-e1564405931992.png"><br><br>
             <label class="w3-text-blue" for="urlwww">Adres Twojej strony wwww:</label><br>
-            <input class="w3-input w3-border" type="text" id="urlwww" name="urlwww" value="https://b.multibiblioteka.waw.pl"><br><br>
+            <input class="w3-input w3-border" type="text" id="urlwww" name="urlwww"
+                value="https://bibliotekarz.com"><br><br>
             <label class="w3-text-blue" for="podmiot">Nazwa firmy:</label><br>
-            <input class="w3-input w3-border" type="text" id="podmiot" name="podmiot" value="Biblioteka Publiczna w Dzielnicy Targówek m.st. Warszawy"><br><br>
+            <input class="w3-input w3-border" type="text" id="podmiot" name="podmiot"
+                value="Biblioteka Publiczna gdzies w kraju"><br><br>
             <label class="w3-text-blue" for="data_publikacja">Data publikacji strony internetowej:</label><br>
-            <input class="w3-input w3-border" type="text" id="data_publikacja" name="data_publikacja" value="2002-11-14"><br><br>
+            <input class="w3-input w3-border" type="text" id="data_publikacja" name="data_publikacja"
+                value="2002-11-14"><br><br>
             <label class="w3-text-blue" for="data_aktualizacja">Data ostatniej dużej aktualizacji:</label><br>
-            <input class="w3-input w3-border" type="text" id="data_aktualizacja" name="data_aktualizacja" value="2018-09-01"><br><br>
+            <input class="w3-input w3-border" type="text" id="data_aktualizacja" name="data_aktualizacja"
+                value="2018-09-01"><br><br>
             <label class="w3-text-blue" for="status">Opisz status zgodności strony z ustawą:</label><br>
             <div class="content">
                 <div id="status" class="pell"></div>
-                <input type="hidden" id="hstatus" name="hstatus" value="<h3>nie zmieniono tekstu!</h3>">
+                <input type="hidden" id="hstatus" name="hstatus" value="<h3 class='alert'>nie zmieniono tekstu!</h3>">
                 <script>
-                    var opis_strony = window.pell.init({
+                    var o_status = window.pell.init({
                         element: document.getElementById('status'),
                         defaultParagraphSeparator: 'p',
-                        onChange: function(html) {
+                        onChange: function (html) {
                             document.getElementById('hstatus').value = html
                         }
                     })
-                    opis_strony.content.innerHTML = '<p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p><ul><li>część plików w formacie pdf nie jest dostępnych cyfrowo,</li><li>część artykułów ma niepełną strukturę semantyczną,</li></ul><p>Wyłączenia: </p><ul><li>mapy są wyłączone z obowiązku zapewniania dostępności</li></ul>'
+                    o_status.content.innerHTML = '<p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p><ul><li>część plików w formacie pdf nie jest dostępnych cyfrowo,</li><li>część artykułów ma niepełną strukturę semantyczną,</li></ul><p>Wyłączenia: </p><ul><li>mapy są wyłączone z obowiązku zapewniania dostępności</li></ul>'
                 </script>
             </div>
             <br><br>
             <label class="w3-text-blue" for="data_sporzadzenie">Data sporządzenia deklaracji:</label><br>
-            <input class="w3-input w3-border" type="text" id="data_sporzadzenie" name="data_sporzadzenie" value="2020-03-30"><br><br>
+            <input class="w3-input w3-border" type="text" id="data_sporzadzenie" name="data_sporzadzenie"
+                value="2020-03-30"><br><br>
             <label class="w3-text-blue" for="opis_strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
             <div class="content">
                 <div id="opis_strony" class="pell"></div>
-                <input type="hidden" id="hopis_strony" name="hopis_strony" value="<h3>nie zmieniono tekstu!</h3>">
+                <input type="hidden" id="hopis_strony" name="hopis_strony"
+                    value="<h3 class='alert'>nie zmieniono tekstu!</h3>">
                 <script>
-                    var opis_strony = window.pell.init({
+                    var o_strony = window.pell.init({
                         element: document.getElementById('opis_strony'),
                         defaultParagraphSeparator: 'p',
-                        onChange: function(html) {
+                        onChange: function (html) {
                             document.getElementById('hopis_strony').value = html
                         }
                     })
-                    opis_strony.content.innerHTML = '<p>Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p><p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p><ol><li>wersję kontrastową,</li><li>możliwość zmiany rozmiaru tekstu,</li><li>widoczny fokus,</li><li>wyróżnienie odnośników,</li><li>skip linki dla urzadzeń czytających</li><li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li></ol><p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>';
+                    o_strony.content.innerHTML = '<p>Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p><p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p><ol><li>wersję kontrastową,</li><li>możliwość zmiany rozmiaru tekstu,</li><li>widoczny fokus,</li><li>wyróżnienie odnośników,</li><li>skip linki dla urzadzeń czytających</li><li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li></ol><p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>';
                 </script>
             </div>
             <br>
             <br>
-            <label class="w3-text-blue" for="info_user">Nieobowiązkowa informacja dla użytkowników niepełnosprawnych:</label><br>
+            <label class="w3-text-blue" for="info_user">Nieobowiązkowa informacja dla użytkowników
+                niepełnosprawnych:</label><br>
             <div class="content">
                 <div id="info_user" class="pell"></div>
-                <input type="hidden" id="hinfo_user" name="hinfo_user" value="<h3>nie zmieniono tekstu!</h3>">
+                <input type="hidden" id="hinfo_user" name="hinfo_user"
+                    value="<h3 class='alert'>nie zmieniono tekstu!</h3>">
                 <script>
-                    var opis_strony = window.pell.init({
+                    var o_user = window.pell.init({
                         element: document.getElementById('info_user'),
                         defaultParagraphSeparator: 'p',
-                        onChange: function(html) {
+                        onChange: function (html) {
                             document.getElementById('hinfo_user').value = html
                         }
                     })
-                    opis_strony.content.innerHTML = '<ul><li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li><li>Na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li><li>Nawigacja jest też przyjazna dla osób niewidomych dzięki unikalnym tytułom podstron i porządkującej funkcji nagłówków.</li><li>W całym serwisie włączony jest tzw. fokus, czyli domyślne oznaczenie aktywnego linka czy pola formularza. Fokus przemieszcza się po wszystkich widocznych elementach aktywnych strony w logicznej kolejności – klawisz TAB. </li><li>Linki – także te prowadzące do serwisów zewnętrznych – otwierają się w tym samym oknie. </li><li>Zachowany jest czytelny kontrast tekstu do tła – dzięki temu materiały osadzone na stronie są czytelne także dla osób słabiej widzących.</li><li>Artykuły pisane są zrozumiałym tekstem oraz formatowane w sposób zgodny z zasadami dostępności.</li><li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li></ul><p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p>';
+                    o_user.content.innerHTML = '<ul><li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li><li>Na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li><li>Nawigacja jest też przyjazna dla osób niewidomych dzięki unikalnym tytułom podstron i porządkującej funkcji nagłówków.</li><li>W całym serwisie włączony jest tzw. fokus, czyli domyślne oznaczenie aktywnego linka czy pola formularza. Fokus przemieszcza się po wszystkich widocznych elementach aktywnych strony w logicznej kolejności – klawisz TAB. </li><li>Linki – także te prowadzące do serwisów zewnętrznych – otwierają się w tym samym oknie. </li><li>Zachowany jest czytelny kontrast tekstu do tła – dzięki temu materiały osadzone na stronie są czytelne także dla osób słabiej widzących.</li><li>Artykuły pisane są zrozumiałym tekstem oraz formatowane w sposób zgodny z zasadami dostępności.</li><li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li></ul><p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p>';
                 </script>
             </div>
 
 
             <br><br>
             <label class="w3-text-blue" for="osoba">Osoba odpowiedzialna:</label><br>
-            <input class="w3-input w3-border" type="text" id="osoba" name="osoba" value="Katarzyna Żółkowska"><br><br>
+            <input class="w3-input w3-border" type="text" id="osoba" name="osoba" value="Niedoszły Bibliotekarz"><br><br>
             <label class="w3-text-blue" for="email">Email osoby odpowiedzialnej:</label><br>
-            <input class="w3-input w3-border" type="text" id="email" name="email" value="kzolkowska@multibiblioteka.waw.pl"><br><br>
+            <input class="w3-input w3-border" type="text" id="email" name="email"
+                value="adres@email.biblio.pl"><br><br>
             <label class="w3-text-blue" for="telefon">Telefon osoby odpowiedzialnej:</label><br>
-            <input class="w3-input w3-border" type="text" id="telefon" name="telefon" value="22 814 24 07 w 102"><br><br>
-            <label class="w3-text-blue" for="architektura">Opisz dostępność architektoniczną podstawowej lokalizacji:</label><br>
+            <input class="w3-input w3-border" type="text" id="telefon" name="telefon"
+                value="22 123 45 67 w 890"><br><br>
+            <label class="w3-text-blue" for="architektura">Opisz dostępność architektoniczną podstawowej
+                lokalizacji:</label><br>
 
-        <div class="content">
-            <div id="architektura" class="pell"></div>
-            <input type="hidden" id="harchitektura" name="harchitektura" value="<h3>nie zmieniono tekstu!</h3>">
-            <script>
-                var opis_strony = window.pell.init({
-                    element: document.getElementById('architektura'),
-                    defaultParagraphSeparator: 'p',
-                    onChange: function(html) {
-                        document.getElementById('harchitektura').value = html
-                    }
-                })
-                opis_strony.content.innerHTML = '<p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>';
-            </script>
-        </div>
-        
-        <br><br>
-        <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz kod w okno poniżej</button>
-              
-        <input type="button" onClick="download();" value="zapisz plik deklaracji">
+            <div class="content">
+                <div id="architektura" class="pell"></div>
+                <input type="hidden" id="harchitektura" name="harchitektura"
+                    value="<h3 class='alert'>nie zmieniono tekstu!</h3>">
+                <script>
+                    var o_architektura = window.pell.init({
+                        element: document.getElementById('architektura'),
+                        defaultParagraphSeparator: 'p',
+                        onChange: function (html) {
+                            document.getElementById('harchitektura').value = html
+                        }
+                    })
+                    o_architektura.content.innerHTML = '<p><b>Czytelnia Naukowa nr I</b> ul. Wypożyczalni 3 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych od strony ulicy Czytelników, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>';
+                </script>
+            </div>
+
+            <br><br>
+            <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz kod w
+                okno poniżej</button>
+
+            <input type="button" onClick="download();" value="zapisz plik deklaracji">
         </fieldset>
     </form>
 
     <br>
     <h2>Zawartość pliku deklaracji dostępności</h2>
-    <p>Skopiuj treść z okna poniżej do notatnika, zapisz plik jako deklaracja_dostepnosci.html i wyślij na serwer do katalogu głównego Twojego serwisu internetowego.</p>
+    <p>Przejrzyj wygenerowną treść w oknie poniżej i nanieś potrzebne poprawki. Skopiuj poprawioną treść do notatnika, zapisz plik jako deklaracja_dostepnosci.html i wyślij na serwer do katalogu głównego Twojego serwisu internetowego.</p>
     <textarea class="w3-input w3-border" name="architektura" style="height:260px;" id="duda"></textarea>
-
-
-    <h3>tere tero</h3>
-    <form name="pobierz_plik">
-    </form>
-
+    <br>
 
 </body>
 
