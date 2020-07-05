@@ -34,14 +34,13 @@
             <label class="w3-text-blue" for="status">Opisz status zgodności strony z ustawą:</label><br>
             <div class="content">
                 <div id="status" class="pell"></div>
-                <br>
-                <pre id="html-output-status">sds</pre>
+                <input type="hidden" id="hstatus" name="hstatus" value="<h3>nie zmieniono tekstu!</h3>">
                 <script>
                     var opis_strony = window.pell.init({
                         element: document.getElementById('status'),
                         defaultParagraphSeparator: 'p',
                         onChange: function(html) {
-                            document.getElementById('html-output-status').textContent = html
+                            document.getElementById('hstatus').value = html
                         }
                     })
                     opis_strony.content.innerHTML = '<p>Strona internetowa jest częściowo zgodna z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności lub włączeń wymienionych poniżej: </p><ul><li>część plików w formacie pdf nie jest dostępnych cyfrowo,</li><li>część artykułów ma niepełną strukturę semantyczną,</li></ul><p>Wyłączenia: </p><ul><li>mapy są wyłączone z obowiązku zapewniania dostępności</li></ul>'
@@ -53,14 +52,13 @@
             <label class="w3-text-blue" for="opis_strony">Opisz podstawę analizy strony i jej zawartość:</label><br>
             <div class="content">
                 <div id="opis_strony" class="pell"></div>
-                <br>
-                <pre id="html-output">sds</pre>
+                <input type="hidden" id="hopis_strony" name="hopis_strony" value="<h3>nie zmieniono tekstu!</h3>">
                 <script>
                     var opis_strony = window.pell.init({
                         element: document.getElementById('opis_strony'),
                         defaultParagraphSeparator: 'p',
                         onChange: function(html) {
-                            document.getElementById('html-output').textContent = html
+                            document.getElementById('hopis_strony').value = html
                         }
                     })
                     opis_strony.content.innerHTML = '<p>Deklarację sporządzono na podstawie samooceny przeprowadzonej przez podmiot publiczny.</p><p>Strona posiada następujące ułatwienia dla osób z niepełnosprawnościami:</p><ol><li>wersję kontrastową,</li><li>możliwość zmiany rozmiaru tekstu,</li><li>widoczny fokus,</li><li>wyróżnienie odnośników,</li><li>skip linki dla urzadzeń czytających</li><li>na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li></ol><p>Aktualnie trwają prace nad konwersją wszystkich plików PDF do wersji dostępnych cyfrowo i poprawą semantyki kodu.</p>';
@@ -71,14 +69,13 @@
             <label class="w3-text-blue" for="info_user">Informacja dla użytkowników niepełnosprawnych:</label><br>
             <div class="content">
                 <div id="info_user" class="pell"></div>
-                <br>
-                <pre id="html-output-info_user">sds</pre>
+                <input type="hidden" id="hinfo_user" name="hinfo_user" value="<h3>nie zmieniono tekstu!</h3>">
                 <script>
                     var opis_strony = window.pell.init({
                         element: document.getElementById('info_user'),
                         defaultParagraphSeparator: 'p',
                         onChange: function(html) {
-                            document.getElementById('html-output-info_user').textContent = html
+                            document.getElementById('hinfo_user').value = html
                         }
                     })
                     opis_strony.content.innerHTML = '<ul><li>Użytkownicy korzystający wyłącznie z klawiatury mogą swobodnie poruszać się po serwisie za pomocą klawisza Tab.</li><li>Na stronie internetowej można korzystać ze standardowych skrótów klawiaturowych.</li><li>Nawigacja jest też przyjazna dla osób niewidomych dzięki unikalnym tytułom podstron i porządkującej funkcji nagłówków.</li><li>W całym serwisie włączony jest tzw. fokus, czyli domyślne oznaczenie aktywnego linka czy pola formularza. Fokus przemieszcza się po wszystkich widocznych elementach aktywnych strony w logicznej kolejności – klawisz TAB. </li><li>Linki – także te prowadzące do serwisów zewnętrznych – otwierają się w tym samym oknie. </li><li>Zachowany jest czytelny kontrast tekstu do tła – dzięki temu materiały osadzone na stronie są czytelne także dla osób słabiej widzących.</li><li>Artykuły pisane są zrozumiałym tekstem oraz formatowane w sposób zgodny z zasadami dostępności.</li><li>Zdjęcia i grafiki w serwisie mają alternatywne opisy, aby ich treść była dostępna dla osób niewidomych oraz osób które nie wyświetlają grafiki na przykład na urządzeniach mobilnych.</li></ul><p>W nagłówku strony jest umiejscowione specjalne menu wspierające z opcją zmiany wielkości fonta i zmianą kontrastu strony.</p>';
@@ -94,14 +91,24 @@
             <label class="w3-text-blue" for="telefon">Telefon osoby odpowiedzialnej:</label><br>
             <input class="w3-input w3-border" type="text" id="telefon" name="telefon" value="22 814 24 07 w 102"><br><br>
             <label class="w3-text-blue" for="architektura">Opisz dostępność architektoniczną podstawowej lokalizacji:</label><br>
-            <textarea class="w3-input w3-border" name="architektura" style="height:200px;"><p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych
-            od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu
-            ze zbiorów pomaga bibliotekarz.
-        </p></textarea><br><br>
-            <span id="kolejne_lokalizacje"></span><br>
-            <input type="button" value="dodaj kolejną lokalizację" onclick="wstaw2()" />
-            <br><br>
-            <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz</button>
+
+        <div class="content">
+            <div id="architektura" class="pell"></div>
+            <input type="hidden" id="harchitektura" name="harchitektura" value="<h3>nie zmieniono tekstu!</h3>">
+            <script>
+                var opis_strony = window.pell.init({
+                    element: document.getElementById('architektura'),
+                    defaultParagraphSeparator: 'p',
+                    onChange: function(html) {
+                        document.getElementById('harchitektura').value = html
+                    }
+                })
+                opis_strony.content.innerHTML = '<p><b>Czytelnia Naukowa nr I</b> ul. Św. Wincentego 85 – lokal usytuowany częściowo na parterze, częściowo na piętrze, winda, na piętrze toaleta dla osób niepełnosprawnych, przy budynku jest miejsce parkingowe dla osób niepełnosprawnych od strony ulicy Franciszka Groëra, w lokalu istnieje możliwość poruszania się osób niepełnosprawnych z psem przewodnikiem, nie ma możliwości skorzystania z tłumacza języka migowego. Po wejściu do biblioteki w skorzystaniu ze zbiorów pomaga bibliotekarz.</p>';
+            </script>
+        </div>
+        
+        <br><br>
+              <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz</button>
         </fieldset>
     </form>
 
@@ -111,7 +118,7 @@
     <textarea class="w3-input w3-border" name="architektura" style="height:260px;" id="duda"></textarea>
 
 
-    <h1>tere tero</h1>
+    <h3>tere tero</h3>
     <form name="pobierz_plik">
         <input type="button" onClick="download();" value="zapisz plik deklaracji">
     </form>

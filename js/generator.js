@@ -1,11 +1,5 @@
 function utworz_text() {
-    let opis_strony1 = document.getElementById('html-output').textContent;
-    let info_user1 = document.getElementById('html-output-info_user').textContent;
-    let status1 = document.getElementById('html-output-status').textContent;
-    alert(info_user1.match(/^\s*$/g));
-    //TODO: wywalić te 1 z nazwy
 
-    console.log(opis_strony1);
     let zformularz = new FormData(document.getElementById('formularz'));
     let klucze = zformularz.keys();
     var dodane = "";
@@ -16,24 +10,26 @@ function utworz_text() {
             dodane = dodane + doda;
         }
     }
-
-    if (info_user1.match(/^\s*$/g)) {
+alert(zformularz.get('hinfo_user'));
+    if (zformularz.get('hinfo_user').match(/^\s*$/g)) {
         niepelnosprawni = "";
-        console.log(niepelnosprawni);
+        console.log("if niepełni: " + niepelnosprawni);
     } else {
         niepelnosprawni = `<h2>Informacja dla użytkowników niepełnosprawnych</h2>
-        ${info_user1}`;
+        ${zformularz.get('hinfo_user')}`;
 
-        console.log(niepelnosprawni);
+        console.log("else niepełni: " + niepelnosprawni);
     }
-    var bazowy = `<html>
 
+
+
+// :TODO: osadzić style bezpośrednio w dokumencie
+    var bazowy = `<html>
         <head>
             <title>Deklaracja dostępności</title>
             <meta name="deklaracja-dostępności" content="${zformularz.get('urldeklaracji')}">    <meta charset="UTF-8" />
             <meta name="description" content="Deklaracja dostępności" />
             <meta name="robots" content="noindex" />
-            
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
             <link rel="stylesheet" href="css/style.css" />
         </head>
@@ -58,12 +54,11 @@ function utworz_text() {
                                 <p>Data ostatniej dużej aktualizacji: <span id="a11y-data_aktualizacja">${zformularz.get('data_aktualizacja')}</span>.</p>
         
         
-                                <div id="a11y-status">${status1} 
+                                <div id="a11y-status">${zformularz.get('hstatus')}
                                    
         
-                                <p>Oświadczenie sporządzono dnia <span id="a11y-data_sporzadzenie">${zformularz.get('data_sporzadzenie')}</span>. ${opis_strony1} 
-                                ${niepelnosprawni}
-        
+                                <p>Oświadczenie sporządzono dnia <span id="a11y-data_sporzadzenie">${zformularz.get('data_sporzadzenie')}</span>. ${zformularz.get('hopis_strony')}
+                                 ${niepelnosprawni} 
                                 <h2>Informacje zwrotne i dane kontaktowe</h2>
                                 <div id="a11y-procedura">
                                     <div id="a11y-kontakt">
@@ -78,7 +73,7 @@ function utworz_text() {
                                     <p>Po wyczerpaniu wszystkich możliwości skargę można przesłać także do <a href="https://www.rpo.gov.pl/content/jak-zglosic-sie-do-rzecznika-praw-obywatelskich" title="Przekierowanie do strony zewnętrznej">Rzecznika Praw Obywatelskich</a>.</p>
                                 </div>
                                 <h2>Dostępność architektoniczna</h2>
-                                <div id="a11y-architektura">${zformularz.get('architektura')} ${dodane}</div>
+                                <div id="a11y-architektura">${zformularz.get('harchitektura')} ${dodane}</div>
                             </div>
                         </main>
                     </div>
@@ -89,34 +84,6 @@ function utworz_text() {
     </html>`;
     bazowy = String(bazowy).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     document.getElementById('duda').innerHTML = bazowy;
-
-}
-
-i = 1;
-
-function wstaw2() {
-    i++;
-    //   var tekst = document.createTextNode('Dodaj lokalizację nr '+i+': ');  
-
-    var br = document.createElement('br');
-    var br1 = document.createElement('br');
-    var br2 = document.createElement('br');
-    var div = document.createElement('div');
-    var label = document.createElement('label');
-    label.setAttribute('class', 'w3-text-blue');
-    label.setAttribute('for', 'architektura_' + i);
-    var tekst = 'Opisz dostępność architektoniczną w lokalizacji numer ' + i + ':';
-    label.innerText = tekst;
-    var input = document.createElement('textarea');
-    input.setAttribute('name', 'architektura_' + i);
-    input.setAttribute('style', 'height:200px;');
-    input.setAttribute('class', 'w3-input w3-border');
-    div.appendChild(label);
-    div.appendChild(br);
-    div.appendChild(input);
-    div.appendChild(br1);
-    div.appendChild(br2);
-    document.getElementById('kolejne_lokalizacje').appendChild(div);
 
 }
 
