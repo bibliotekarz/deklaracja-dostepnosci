@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="description" content="Generator Deklaracji dostępności" />
     <meta name="robots" content="index" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/pell.css">
     <script src="js/generator.js"></script>
     <script src="js/FileSaver.min.js"></script>
@@ -14,14 +13,19 @@
 </head>
 
 <body>
-    <br><br>
-    <hr>
+    <h1>Generator deklaracji dostępności.</h1>
+    <p>Mając na uwadze wymogi link do ustawy. Wszystkie Biblioteki Publiczne i inne jednostki powinny mieć dokument określający stopień dostępnosci ich strone www, aplikacji oraz dostępność architektoniczną.</p>
+    <p>Poniższy generator powinien ułatwić życie redaktorom strony internetowej jako że wszelkie nałożone ustawą rozporzadzeniem metatagi wygenerują się automatycznie. 
+        Wystarczy wprowadzić dane opisowe we właściwe pola, pobrać plik i osadzić go na swojej stronie.</p>
+    <p>Generator nie zbiera i nie zapisuje żadnych danych :) ze źródłem możesz się zapoznać pod adresem gitcośtam.</p>    
+    <br>
     <form id="formularz" class="w3-container w3-card-4">
         <fieldset>
-            <legend>Wypełnij poniższy formularz:</legend>
-            <label class="w3-text-blue" for="urldeklaracji">adres do strony z deklaracją dostępności:</label><br>
+            <legend>Do dzieła! wypełnij poniższy formularz:</legend>
+            <br>
+            <label class="w3-text-blue" for="urldeklaracji">Adres do strony z deklaracją dostępności:</label><br>
             <input class="w3-input w3-border" type="text" id="urldeklaracji" name="urldeklaracji" value="https://www.multibiblioteka.waw.pl/deklaracja_dostepnosci.html"><br><br>
-            <label class="w3-text-blue" for="urllogo">ścieżka do grafiki logo:</label><br>
+            <label class="w3-text-blue" for="urllogo">Ścieżka do grafiki logo:</label><br>
             <input class="w3-input w3-border" type="text" id="urllogo" name="urllogo" value="https://b.multibiblioteka.waw.pl/wp-content/uploads/2020/03/nowe_logo_bibliotek_przezroczyste.png"><br><br>
             <label class="w3-text-blue" for="urlwww">Adres Twojej strony wwww:</label><br>
             <input class="w3-input w3-border" type="text" id="urlwww" name="urlwww" value="https://b.multibiblioteka.waw.pl"><br><br>
@@ -66,7 +70,7 @@
             </div>
             <br>
             <br>
-            <label class="w3-text-blue" for="info_user">Informacja dla użytkowników niepełnosprawnych:</label><br>
+            <label class="w3-text-blue" for="info_user">Nieobowiązkowa informacja dla użytkowników niepełnosprawnych:</label><br>
             <div class="content">
                 <div id="info_user" class="pell"></div>
                 <input type="hidden" id="hinfo_user" name="hinfo_user" value="<h3>nie zmieniono tekstu!</h3>">
@@ -108,7 +112,9 @@
         </div>
         
         <br><br>
-              <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz</button>
+        <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz kod w okno poniżej</button>
+              
+        <input type="button" onClick="download();" value="zapisz plik deklaracji">
         </fieldset>
     </form>
 
@@ -120,7 +126,6 @@
 
     <h3>tere tero</h3>
     <form name="pobierz_plik">
-        <input type="button" onClick="download();" value="zapisz plik deklaracji">
     </form>
 
 

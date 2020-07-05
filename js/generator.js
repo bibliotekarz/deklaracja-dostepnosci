@@ -1,24 +1,11 @@
 function utworz_text() {
 
     let zformularz = new FormData(document.getElementById('formularz'));
-    let klucze = zformularz.keys();
-    var dodane = "";
-    for (let klucz of klucze) {
-        let nazwa_klucza = zformularz.get(klucz);
-        if (klucz.includes('architektura_')) {
-            let doda = " " + zformularz.get(klucz) + " ";
-            dodane = dodane + doda;
-        }
-    }
-alert(zformularz.get('hinfo_user'));
+        
     if (zformularz.get('hinfo_user').match(/^\s*$/g)) {
         niepelnosprawni = "";
-        console.log("if niepełni: " + niepelnosprawni);
     } else {
-        niepelnosprawni = `<h2>Informacja dla użytkowników niepełnosprawnych</h2>
-        ${zformularz.get('hinfo_user')}`;
-
-        console.log("else niepełni: " + niepelnosprawni);
+        niepelnosprawni = `<h2>Informacja dla użytkowników niepełnosprawnych</h2> ${zformularz.get('hinfo_user')}`;
     }
 
 
@@ -27,10 +14,10 @@ alert(zformularz.get('hinfo_user'));
     var bazowy = `<html>
         <head>
             <title>Deklaracja dostępności</title>
-            <meta name="deklaracja-dostępności" content="${zformularz.get('urldeklaracji')}">    <meta charset="UTF-8" />
+            <meta name="deklaracja-dostępności" content="${zformularz.get('urldeklaracji')}">    
+            <meta charset="UTF-8" />
             <meta name="description" content="Deklaracja dostępności" />
-            <meta name="robots" content="noindex" />
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+            <!-- link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" / -->
             <link rel="stylesheet" href="css/style.css" />
         </head>
         
@@ -73,7 +60,7 @@ alert(zformularz.get('hinfo_user'));
                                     <p>Po wyczerpaniu wszystkich możliwości skargę można przesłać także do <a href="https://www.rpo.gov.pl/content/jak-zglosic-sie-do-rzecznika-praw-obywatelskich" title="Przekierowanie do strony zewnętrznej">Rzecznika Praw Obywatelskich</a>.</p>
                                 </div>
                                 <h2>Dostępność architektoniczna</h2>
-                                <div id="a11y-architektura">${zformularz.get('harchitektura')} ${dodane}</div>
+                                <div id="a11y-architektura">${zformularz.get('harchitektura')}</div>
                             </div>
                         </main>
                     </div>
@@ -88,6 +75,7 @@ alert(zformularz.get('hinfo_user'));
 }
 
 function download() {
+    utworz_text();
     let pobierz = [duda.value];
     var blob = new Blob(pobierz, { type: "text/html;charset=utf-8" });
     saveAs(blob, "deklaracja_dostepnosci.html");
