@@ -7,12 +7,14 @@ function UtworzText() {
     } else {
         niepelnosprawni = `<h3>Informacja dla użytkowników niepełnosprawnych</h3> ${zformularz.get('hinfo_user')}`;
     }
-    
-    FormatDaty();
+
+    FormatDaty(`${zformularz.get('data_publikacja')}`, 'data_publikacja');
+    FormatDaty(`${zformularz.get('data_aktualizacja')}`, 'data_aktualizacja');
+    FormatDaty(`${zformularz.get('data_sporzadzenie')}`, 'data_sporzadzenie');
+
     FormatEmaila();
 
     // :TODO: poprawić style ujednolicić i posprzątać
-    // :TODO: walidacja formatu daty
 
     var bazowy = `<html>
         <head>
@@ -201,40 +203,51 @@ function UtworzText() {
         </body>                
     </html>`;
     bazowy = String(bazowy).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    document.getElementById('duda').innerHTML = bazowy;
+    document.getElementById('podglad').innerHTML = bazowy;
 
 }
 
 
 function FormatEmaila() {
-    var formatemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let formatemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (document.formularz.email.value.match(formatemail)) {
+        document.formularz.email.style.backgroundColor = '';
         return true;
     }
     else {
-        alert("Wprowadzony adres email --> " + document.formularz.email.value + " <-- zdaje się być nieprawidłowy.");
+        alert("Wprowadzony adres email:\n" + document.formularz.email.value + "\n zdaje się być nieprawidłowy.");
+        document.formularz.email.style.backgroundColor = 'red';
         document.formularz.email.focus();
         throw new Error("Błędny format maila STOP");
     }
 }
 
-// data_publikacja data_aktualizacja data_sporzadzenie
 
-function FormatDaty() {
+var olo = 0;
+function FormatDaty(wartosc, miejsce) {
     var formatdaty = /^\d{4}\-\d{2}\-\d{2}$/;
-        if (document.formularz.data_publikacja.value.match(formatdaty)) {
+//    lokalizacja = document.querySelectorAll('input#' + miejsce);
+    lokalizacja = document.querySelectorAll('input[id='+miejsce+']');
+
+    if (wartosc.match(formatdaty)) {
+        lokalizacja[0].style.backgroundColor = '';
+        lokalizacja[0].focus();
         return true;
     }
     else {
-        alert("Wprowadzona data --> " + document.formularz.data_publikacja.value + " <-- ma niewłaściwy format\n Przykład poprawnego formatu daty 2020-01-31.");
-        document.formularz.data_publikacja.focus();
-        throw new Error("Błędny format daty STOP");
+        lokalizacja[0].style.backgroundColor = 'red';
+        lokalizacja[0].focus();
+        alert("Wprowadzona data: \n" + wartosc + "\nma niewłaściwy format\n \nPrzykład poprawnego formatu daty 2020-01-31.");
+        olo = 1;
+        if (olo == 1) {
+            throw new Error("Błędny format daty nie generuj pliku STOP" + lokalizacja[0]);
+        }
     }
 }
 
 function Download() {
     UtworzText();
-    let pobierz = [duda.value];
+    let pobierz = [podglad.value];
     var blob = new Blob(pobierz, { type: "text/html;charset=utf-8" });
     saveAs(blob, "deklaracja_dostepnosci.html");
 }
