@@ -21,7 +21,7 @@
     <p>Generator nie zbiera i nie zapisuje żadnych danych :) ze źródłem możesz się zapoznać pod adresem gitcośtam.</p>
 
     <br>
-    <form id="formularz" class="w3-container w3-card-4">
+    <form id="formularz" name="formularz" class="w3-container w3-card-4">
         <fieldset>
             <legend>Do dzieła! wypełnij poniższy formularz:</legend>
             <br>
@@ -36,7 +36,7 @@
                 value="https://bibliotekarz.com"><br><br>
             <label class="w3-text-blue" for="podmiot">Nazwa firmy:</label><br>
             <input class="w3-input w3-border" type="text" id="podmiot" name="podmiot"
-                value="Biblioteka Publiczna gdzies w kraju"><br><br>
+                value="Biblioteka Publiczna gdzieś w kraju"><br><br>
             <label class="w3-text-blue" for="data_publikacja">Data publikacji strony internetowej:</label><br>
             <input class="w3-input w3-border" type="text" id="data_publikacja" name="data_publikacja"
                 value="2002-11-14"><br><br>
@@ -128,10 +128,10 @@
             </div>
 
             <br><br>
-            <button type="submit" value="Submit" form="formularz" onclick="utworz_text();return false">Przepisz kod w
+            <button type="submit" value="Submit" form="formularz" onclick="UtworzText();return false">Przepisz kod w
                 okno poniżej</button>
 
-            <input type="button" onClick="download();" value="zapisz plik deklaracji">
+            <input type="button" onClick="Download();" value="zapisz plik deklaracji">
         </fieldset>
     </form>
 

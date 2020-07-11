@@ -1,4 +1,4 @@
-function utworz_text() {
+function UtworzText() {
 
     let zformularz = new FormData(document.getElementById('formularz'));
 
@@ -7,12 +7,12 @@ function utworz_text() {
     } else {
         niepelnosprawni = `<h3>Informacja dla użytkowników niepełnosprawnych</h3> ${zformularz.get('hinfo_user')}`;
     }
-
-
+    
+    FormatDaty();
+    FormatEmaila();
 
     // :TODO: poprawić style ujednolicić i posprzątać
     // :TODO: walidacja formatu daty
-    // :TODO: walidacja maila
 
     var bazowy = `<html>
         <head>
@@ -79,7 +79,6 @@ function utworz_text() {
                 line-height: 110%;
                 font-kerning: normal;
                 letter-spacing: 3px;
-                text-transform: uppercase;
             }
     
             #main-content-wrapper {
@@ -206,8 +205,35 @@ function utworz_text() {
 
 }
 
-function download() {
-    utworz_text();
+
+function FormatEmaila() {
+    var formatemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (document.formularz.email.value.match(formatemail)) {
+        return true;
+    }
+    else {
+        alert("Wprowadzony adres email --> " + document.formularz.email.value + " <-- zdaje się być nieprawidłowy.");
+        document.formularz.email.focus();
+        throw new Error("Błędny format maila STOP");
+    }
+}
+
+// data_publikacja data_aktualizacja data_sporzadzenie
+
+function FormatDaty() {
+    var formatdaty = /^\d{4}\-\d{2}\-\d{2}$/;
+        if (document.formularz.data_publikacja.value.match(formatdaty)) {
+        return true;
+    }
+    else {
+        alert("Wprowadzona data --> " + document.formularz.data_publikacja.value + " <-- ma niewłaściwy format\n Przykład poprawnego formatu daty 2020-01-31.");
+        document.formularz.data_publikacja.focus();
+        throw new Error("Błędny format daty STOP");
+    }
+}
+
+function Download() {
+    UtworzText();
     let pobierz = [duda.value];
     var blob = new Blob(pobierz, { type: "text/html;charset=utf-8" });
     saveAs(blob, "deklaracja_dostepnosci.html");
