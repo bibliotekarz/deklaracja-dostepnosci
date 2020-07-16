@@ -58,7 +58,7 @@ function UtworzText() {
             #logo img {
                 display: block;
                 max-width: none;
-                margin: 0 auto;
+                margin: 0 1rem;
             }
             
             .site-title a,
