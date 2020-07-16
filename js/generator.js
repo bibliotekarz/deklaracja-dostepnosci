@@ -24,89 +24,91 @@ function UtworzText() {
             <meta name="description" content="Deklaracja dostępności" />
             <style>
             body {
-                padding: 1.3em 3.60em 1.3em 3.60em;
-                font-size: .813em;
-                line-height: 1.385em;
+                padding: 1rem 1.60rem 1rem 1.60rem;
+                font-size: 1rem;
+                line-height: 1.8rem;
                 color: #575757;
                 font-family: Verdana, sans-serif;
             }
-    
+            
             #content {
                 width: 90%;
                 background-color: white;
-                padding: 30px;
+                padding: 1rem;
             }
-    
+            
             .site-branding {
                 width: 80%;
-                padding-bottom: 1.3em;
-                height: 3em;
+                padding-bottom: 1.3rem;
+                height: 1.236rem;
                 margin: 0 auto;
                 display: table;
             }
-    
+            
             #logo {
                 vertical-align: middle;
                 display: table-cell;
             }
-    
+            
             a,
             a:visited {
                 color: #575757;
             }
-    
+            
             #logo img {
                 display: block;
                 max-width: none;
                 margin: 0 auto;
             }
-    
+            
             .site-title a,
             .site-title a:visited {
                 color: #000;
                 display: inline-block;
                 text-decoration: none;
             }
-    
+            
             .site-title {
                 display: table-cell;
                 vertical-align: middle;
-                font-family: Mukta;
-                line-height: 110%;
-                font-kerning: normal;
-                letter-spacing: 3px;
             }
-    
+            
             main {
                 margin: 0 auto;
                 background-color: #fff;
                 -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .08);
-                box-shadow: 0 0 1.20em 0 rgba(0, 0, 0, .08);
+                box-shadow: 0 0 1.20rem 0 rgba(0, 0, 0, .08);
                 position: relative;
                 z-index: 1;
                 display: table-row;
             }
-
+            
             #a11y-deklaracja {
-            padding: 1.30em;
+            padding: 1.60rem;
             }
 
+            .alert {
+                color: #ff0000;
+            }
+            
             h1, h2, h3 {
                 clear: both;
                 color: #154d88;
-                line-height: 1.1em;
             }
-    
+            
             h1 {
-                font-size: 2em;
+                font-size: 4.236rem;
+                line-height: 5rem;
             }
-    
+            
             h2 {
-                font-size: 1.5em;
+                font-size: 2.618rem;
+                line-height: 3rem;
             }
-    
+            
             h3 {
-                font-size: 1.17em;
+                font-size: 1.618rem;
+                line-height: 2rem;
             }
             footer {
                 display: block;
@@ -198,6 +200,7 @@ function FormatDaty(wartosc, miejsce) {
 
 function Download() {
     UtworzText();
+    document.getElementById('podglad').focus();
     let pobierz = [podglad.value];
     var blob = new Blob(pobierz, { type: "text/html;charset=utf-8" });
     saveAs(blob, "deklaracja_dostepnosci.html");
